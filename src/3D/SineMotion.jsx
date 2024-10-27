@@ -30,7 +30,7 @@ const SineMotion = () => {
     });
 
     return (
-        <mesh material={material} ref={meshRef} position={[0, -0.5, window.innerWidth/window.innerHeight - 1.2]}>
+        <mesh material={material} ref={meshRef} position={[0, -1, window.innerWidth/window.innerHeight]}>
             <planeGeometry args={[14, 8, 15, 9]} />
         </mesh>
     );
