@@ -21,7 +21,7 @@ const Home = () => {
         </ParallaxLayer>
 
         <ParallaxLayer offset={0.9999} speed={1} factor={2}>
-            <section className='bg-white text-black w-full flex flex-col gap-5 h-full py-12 px-5'>
+            <section className='bg-black text-gray-300 w-full flex flex-col gap-5 h-full py-12 px-5'>
                 <div className="max-w-6xl mx-auto flex  flex-col items-start gap-8 justify-center">
                         <h1 className='h1'>Digital Agentur aus Zug für Coding, Design und Headless-Softwarelösungen</h1>
                         <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2>
@@ -57,6 +57,19 @@ const Home = () => {
                         <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
                         </div>
+                    </div>
+                </div>
+                <div className='w-full  flex items-center justify-center'>
+                    <div className='relative group'>
+                    <div className='absolute group-hover:opacity-100 transition duration-1000 group-hover:duration-200 -inset-0.5 bg-gradient-to-r blur from-pink-600 to-purple-600 opacity-75 rounded-lg'></div>
+
+                        <button className='px-8 py-4 bg-black leading-none relative rounded-lg'>
+
+                            <div className='flex space-x-4 divide-x divide-gray-600'>
+                                <span className='pr-4 text-gray-200 group-hover:text-white transition duration-200'>Go to our Portfolio</span>
+                                <span className='pl-8 text-blue-600 group-hover:text-white transition duration-1000 group-hover:duration-200'>Click Here</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
             </section>
