@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import * as THREE from 'three';
-import img from '../assets/img1.jpeg';
+import img from '../assets/neurons.jpg';
 import { useFrame } from '@react-three/fiber';
 
 const SineMotion = () => {
@@ -29,8 +29,10 @@ const SineMotion = () => {
         geometry.computeVertexNormals(); // Recompute normals if necessary
     });
 
+    const dynamicZ = window.innerWidth >= 1024 ? 1.4 : window.innerWidth >= 768 && window.innerWidth < 1024 ? -0.4 : window.innerWidth < 768 && window.innerWidth > 368 ? -2 : -2.5
+
     return (
-        <mesh material={material} ref={meshRef} position={[0, -1, window.innerWidth/window.innerHeight]}>
+        <mesh material={material} ref={meshRef} position={[0, 0, dynamicZ]}>
             <planeGeometry args={[14, 8, 15, 9]} />
         </mesh>
     );
