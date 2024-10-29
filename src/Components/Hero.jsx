@@ -15,8 +15,8 @@ const Hero = () => {
    
 
   return (
-        <Suspense className='w-full h-full flex items-center justify-center' fallback={null}>
-            <Canvas className='relative bg-black  w-fit object-contain h-full opacity-80'>
+        <Suspense className='w-full h-full min-h-[100vh] flex items-center justify-center' fallback={null}>
+            <Canvas className='relative bg-black  w-fit object-contain h-full min-h-[100vh] opacity-80'>
             <ambientLight />
               <SineMotion  />
             </Canvas>

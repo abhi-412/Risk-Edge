@@ -20,6 +20,47 @@ body,html,#root {
   
 }
 
+.container .card{
+    width: 320px;
+    position: relative;
+    height: 400px;
+    background: rgb(28, 28, 28);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container .card::before{
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(var(--clr),transparent,transparent);
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    transition: 0.5s, top 0s, left 0s;
+}
+
+.container .card:hover::before{
+    opacity: 1;
+    
+}
+.container .card::after{
+    /* content: ''; */
+    position: absolute;
+    inset: 2px;
+    border-radius: 18px;
+    background: rgba(24, 22, 22, 0.6);
+}
+
+.container .card:hover{
+    scale: 1.1;
+    transition: 0.5s;
+}
+
 /* .bff{
     background-image: url(assets/img1.jpeg);
     background-repeat: no-repeat;
