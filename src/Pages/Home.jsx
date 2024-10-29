@@ -2,7 +2,7 @@ import React from 'react'
 import Section from '../Components/Section'
 import Hero from '../Components/Hero'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import aiHuman from "../assets/aiWoman.png"
+import aiHuman from "../assets/aiRobot.jpg"
 
 const Home = () => {
 
@@ -18,7 +18,7 @@ const Home = () => {
         });
     };
 
-    const pageOffset2 = window.innerWidth >= 1024 ? 1.8 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 1.8 : 2
+    const pageOffset2 = window.innerWidth >= 1024 ? 1.8 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 1.3 : window.innerWidth < 768 && window.innerWidth > 368 ? 2 : 2.3
     
   return (
     // <Section className={"relative"}>
@@ -130,7 +130,7 @@ const Home = () => {
                     <div className="relative z-1 max-w-[17rem] ml-auto">
                         <h4 className="h4 mb-4">Our Smart AI</h4>
                         <p className="body-2 mb-[3rem] text-white">
-                            Brainwave unlocks the potential of AI-powered applications
+                            Unlock unlocks the potential of AI-powered applications
                         </p>
                         <ul className="body-2">
                             <li className="flex items-start py-4 border-t border-n-6">
