@@ -20,16 +20,26 @@ body,html,#root {
   
 }
 
-.container .card{
-    width: 320px;
+
+.hide-scrollbar{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar{
+  display: none;
+}
+
+.card{
+    width: 380px;
     position: relative;
-    height: 400px;
-    background: rgb(28, 28, 28);
-    border-radius: 20px;
+    height: 500px;
+    /* border-radius: 20px; */
     overflow: hidden;
 }
 
-.container .card::before{
+
+/* .container .card::before{
     content: '';
     position: absolute;
     top: var(--y);
@@ -39,25 +49,24 @@ body,html,#root {
     background: radial-gradient(var(--clr),transparent,transparent);
     width: 400px;
     height: 400px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,0%);
     opacity: 0;
     transition: 0.5s, top 0s, left 0s;
-}
+} */
 
-.container .card:hover::before{
+.card:hover::before{
     opacity: 1;
     
 }
-.container .card::after{
+ .card::after{
     /* content: ''; */
     position: absolute;
     inset: 2px;
     border-radius: 18px;
     background: rgba(24, 22, 22, 0.6);
 }
-
-.container .card:hover{
-    scale: 1.1;
+.card:hover{
+    scale: 1.05;
     transition: 0.5s;
 }
 

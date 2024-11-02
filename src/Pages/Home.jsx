@@ -3,8 +3,12 @@ import Section from '../Components/Section'
 import Hero from '../Components/Hero'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import aiHuman from "../assets/aiRobot.jpg"
+import icons from '../utils/icons'
+import Footer from '../Components/Footer'
+import images from '../utils/images'
+import ServiceCard from '../Components/ServiceCard'
 
-const Home = () => {
+const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
     const handleMouseMove = (e) => {
         let cards = document.querySelectorAll('.card');
@@ -18,60 +22,97 @@ const Home = () => {
         });
     };
 
-    const pageOffset2 = window.innerWidth >= 1024 ? 1.8 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 1.3 : window.innerWidth < 768 && window.innerWidth > 368 ? 2 : 2.3
+    const pages = window.innerWidth >= 1024 ? 3.5 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth > 368 ? 5.6 : 6
+    const pageOffset2 = window.innerWidth >= 1024 ? 1.8 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 1.9 : window.innerWidth < 768 && window.innerWidth > 368 ? 2.3 : 2.3
     
+    const services = [
+        // {id:1,title:"Consulting & Training",
+        //     description:"Our Consulting practice designs and implements solutions related to Predictive Analytics, Risk Management, Software Development.  Our Training vertical caters to custom requirements in Blockchain, Machine Learning and Risk Analytics."
+        //     ,color:"yellow-400", img:images.prod1Img
+        // },
+        {id:2,title:"Apps to Solve Specific Problems",
+            description:"Risk Edge’s Predictive Analytics Apps allow you to solve a specific set of problems. These apps are generally very light, are built using the latest technologies."
+            ,color:"green-400", img:images.prod1Img
+        },
+        {id:3,title:"Advanced Analytics on Commodity Data",
+            description:"MarketEdge is an AI driven web based solution that allows you to build advanced analytics on top of your global commodity and energy data."
+            ,color:"blue-400", img:images.specificApp
+        },
+        {id:4,title:"Energy & Commodity Risk Management Software",
+            description:"RiskEdge Software is a VaR (Value at Risk) based Commodity Risk Management System that provides Deeper Insights and Control on your business."
+            ,color:"blue",img:images.domino
+        },
+        {id:5,title:"Plan Edge",
+            description:"Plan Edge is a web-based Planning & Analysis Solution that uses AI to give users instantaneous insights throughout the year.",
+            color:"blue",img:images.planEdge
+        },
+        {id:6,title:"Anomaly Detection",description:"Journal Entry Anomaly Detection Solution enables Internal Audit teams to use AI to detect old and emerging patterns in journal entries and flag those that deviate from a normal behavior."
+            ,color:"blue",img:images.anomalyDetection
+        },
+        {id:7,title:"Predict Edge",
+            description:"Predict Edge is a web-based solution that allows you to relate price and fundamental data using AI and forecast prices with greater accuracy."
+            ,color:"blue",img:images.predictEdge,
+        },
+
+    ]
+
+
   return (
     // <Section className={"relative"}>
     // </Section>
-    <>
-    <Parallax pages={6}>
-        <ParallaxLayer offset={0} factor={1} speed={1}>
-            <section  className='flex w-full h-full flex-col items-center justify-center'>
-                <div className='relative h-screen w-full'>
+    <main className='relative w-full h-full'>
+    <Parallax pages={3.1}>
+        <ParallaxLayer   offset={0} factor={1} speed={1}>
+            <section ref={pageOneRef}  className='flex w-full h-full flex-col items-center  justify-center'>
+                <div className='relative min-h-screen w-full'>
                     <Hero />
                 </div>
             </section>
 
         </ParallaxLayer>
 
-        <ParallaxLayer className='bg-black' offset={0.9999} speed={1} factor={3}>
-           <Section>
-           <section className='text-gray-300 w-full flex flex-col gap-5 h-full py-12 px-5'>
-                <div className="max-w-6xl mx-auto flex  flex-col items-start gap-8 justify-center">
-                        <h1 className='h1'>Digital Agentur aus Zug für Coding, Design und Headless-Softwarelösungen</h1>
-                        <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2>
+        <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={2.1}>
+           <Section className={""}>
+           <section  className='text-gray-900 w-full flex flex-col gap-24 h-full py-12 px-5'>
+                <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 justify-center">
+                        <h1 className='h1'>What We Do?</h1>
+                        {/* <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2> */}
                         <p className='tap-highlight-color body-1'>
-                        Die Websites, die wir bauen, sind darauf ausgerichtet, Ihre Geschäftsziele, Ihr Wachstum und Ihren Online-Erfolg zu maximieren. Gleichzeitig vereinfachen und automatisieren unsere digitalen Produkte Prozesse, verbessern sowohl das Kunden- sowie Mitarbeitererlebnis und eröffnen neue Geschäftsmöglichkeiten. Zusätzlich helfen wir Ihnen bei der nahtlosen Integration und Vernetzung Ihrer Systeme. Dank unserem modernen Softwarestack und unseren innovativen Methoden bleiben wir stets auf dem neuesten Stand der Technik.
+                        Risk Edge was founded in 2013, to fill a desperate need for scalable and configurable Analytics Solutions for Commodities and Energy industry. The Industry needed solutions that were truly built for their problems, used latest technologies to deliver massive & complex computational results fast. Risk Edge has done pioneering work in solving problems using Machine Learning and AI. By using latest advancements in software architecture and hardware, Risk Edge delivers solutions that enable decision making with high precision levels at blazing speed for its clients. 
                         </p>
                 </div>
-                <div className='w-full  flex items-center justify-center flex-col md:p-12 p-4 gap-12'>
-                    <div className='flex md:flex-row flex-col md:gap-10 gap-7'>
-                        <div className='flex flex-col items-start justify-center'>
+                <div className='grid md:grid-cols-2 grid-cols-1 md:p-12 p-4 gap-12'>
+                    <div className='col-span-1 md:gap-10 md:px-12 px-3 space-y-12'>
+                        <div className='flex flex-col gap-5 items-start justify-center'>
+                            <img src={icons.computer} alt="computer" />
+                            <h4 className="h5 font-semibold">Machine Learning</h4>
+                            <p className="body-2">Risk Edge’s “Predictive Engine” is built specifically for Commodity & Energy businesses to help you understand hidden patterns, risks, and price trends so businesses can be understood as a whole, and not just in parts! The in-built models give you a simple, never-before view of your data!</p>
+                        </div>
+                        <div className='flex flex-col gap-5 items-start justify-center'>
+                            <img src={icons.building} alt="" />
+                            <h4 className="h5 font-semibold">Market Edge</h4>
+                            <p className="body-2">Market Edge is an AI-driven, web-based solution to apply analytics to price data of Commodities and Energy. With Machine Learning based forecasting, advanced visualizations and loads of technical analysis indicators and their finger-tips, Market Edge gives both Traders and Risk Managers an edge over many others in the market.</p>
+                        </div>
+                        {/* <div className='flex flex-col items-start justify-center'>
                         <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
-                        </div>
-                        <div className='flex flex-col items-start justify-center'>
-                        <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
-                        <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
-                        </div>
-                        <div className='flex flex-col items-start justify-center'>
-                        <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
-                        <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
-                        </div>
+                        </div> */}
                     </div>
-                    <div className='flex md:flex-row flex-col md:gap-10 gap-7 '>
-                    <div className='flex flex-col items-start justify-center gap-5'>
-                        <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
-                        <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
+                    <div className='col-span-1 md:gap-10 space-y-12 md:px-12 px-3'>
+                        <div className='flex flex-col items-start justify-center gap-5'>
+                            <img src={icons.stack} alt="" />
+                            <h4 className="h5 font-semibold">VaR Edge</h4>
+                            <p className="body-2">RiskEdge does valuation & risk (Value-at-Risk, Expected Shortfall) calculations for all your physical and derivative positions and across counterparties. Its’ Powerful Engine delivers accurate results fast, even with computation intensive methods like Monte-Carlo.</p>
                         </div>
                         <div className='flex flex-col items-start justify-center gap-5'>
+                            <img src={icons.computer} alt="" />
+                            <h4 className="h5 font-semibold">Plan Edge</h4>
+                            <p className="body-2">PLAN EDGE is an AI powered, Digital FP&A platform that provides instantaneous insights throughout the year with cognitive, machine learning capabilities and predictive analysis on past, present and future performances It allows CFOs to connect their planning exercise with people across divisions The solution contributes directly to better planning, and more agile decision making across the board.</p>
+                        </div>
+                        {/* <div className='flex flex-col items-start justify-center gap-5'>
                         <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
-                        </div>
-                        <div className='flex flex-col items-start justify-center gap-5'>
-                        <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
-                        <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className='w-full  flex items-center justify-center'>
@@ -93,31 +134,43 @@ const Home = () => {
            </Section>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={pageOffset2} factor={2} speed={0.5}>
-            <Section className={'bg-black flex flex-col items-center justify-center gap-12'}>
-            <ul className='container  flex items-center justify-center flex-wrap gap-16'>
-                <div onMouseMove={handleMouseMove} className="card shadow-md shadow-green-600 flex flex-col gap-2 items-start justify-center p-5 text-green-700 hover:text-white" style={{"--clr": "#0f0"}}>
-                    <h1 className='h4 text-center'>Item-1</h1>
-                    <h2 className='h6 '>Item-1 Tagline to be used.</h2>
-                    <p className='body-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sed amet expedita modi, sit culpa illo, minus cupiditate labore, corrupti quae doloribus nobis. Illo impedit cumque alias asperiores explicabo rem?</p>
+        <ParallaxLayer className='bg-white text-black' offset={1.5} factor={2.3} speed={1}>
+            <section className={' flex flex-col items-center justify-center gap-12 py-12'}>
+                <div className='max-w-6xl mx-auto  gap-5 flex flex-col items-center justify-center'>
+                    <h1 className='h2 text-center'>Software Products</h1>
+                    <p className='body-1 text-center'>Risk Edge has several software solutions and platforms for delivering custom-designed and powerful Machine Learning & Risk Analytics solution.
+                         Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
+                         Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
-
-                <div onMouseMove={handleMouseMove} className="card shadow-md shadow-yellow-400 flex flex-col gap-2 items-start justify-center p-5 text-yellow-400 hover:text-white" style={{"--clr": "#ff0"}}>
-                    <h1 className='h4 text-center'>Item-2</h1>
-                    <h2 className='h6 '>Item-2 Tagline to be used.</h2> 
-                    <p className='body-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sed amet expedita modi, sit culpa illo, minus cupiditate labore, corrupti quae doloribus nobis. Illo impedit cumque alias asperiores explicabo rem?</p>
-                </div>
-
-                <div onMouseMove={handleMouseMove} className="card shadow-md shadow-purple-400 flex flex-col gap-2 items-start justify-center p-5 text-purple-400 hover:text-white" style={{"--clr": "#A020F0"}}>
-                    <h1 className='h4 text-center'>Item-3</h1>
-                    <h2 className='h6 '>Item-3 Tagline to be used.</h2> 
-                    <p className='body-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sed amet expedita modi, sit culpa illo, minus cupiditate labore, corrupti quae doloribus nobis. Illo impedit cumque alias asperiores explicabo rem?</p>
-                </div>
+            <div className='w-full h-[580px] md:h-full overflow-x-scroll md:overflow-clip hide-scrollbar px-4 py-2 relative'> 
+            <div className='w-fit flex items-center justify-center flex-nowrap md:flex-wrap gap-10'>
+               {
+                services.map((service, index) => {
+                    return (
+                        <ServiceCard key={service.id} {...service} handleMouseMove={handleMouseMove} />
+                    )
+                })
+               }
                 
-            </ul>
+            </div>
+            </div>
+            <div className="flex">
+                <a href="#" className="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                    </svg>
+                    Previous
+                </a>
+                <a href="#" className="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    Next
+                    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </a>
+            </div>
 
             {/* <div className='relative w-full'> */}
-                <div className="relative md:w-3/4 w-11/12 z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
+                {/* <div className="relative md:w-3/4 w-11/12 z-1 flex items-center h-[39rem] mb-5 p-8 border border-n-1/10 rounded-3xl overflow-hidden lg:p-20 xl:h-[46rem]">
                     <div className="absolute top-0 md:left-20 left-5 w-full h-full pointer-events-none md:w-3/5 xl:w-auto">
                         <img 
                             className="w-full h-full object-cover md:object-right" 
@@ -167,16 +220,23 @@ const Home = () => {
                         />
                         AI is generating
                     </div>
-                </div>
+                </div> */}
             {/* </div> */}
 
-            </Section>
+
+            </section>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2.8} factor={0.3}>
+        <Footer />
         </ParallaxLayer>
     </Parallax>
     
+    {/* // <Footer /> */}
+    
 
     
-    </>
+    </main>
   )
 }
 
