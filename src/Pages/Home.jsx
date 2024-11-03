@@ -22,9 +22,13 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
         });
     };
 
-    const pages = window.innerWidth >= 1024 ? 3.5 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth > 368 ? 5.6 : 6
-    const pageOffset2 = window.innerWidth >= 1024 ? 1.8 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 1.9 : window.innerWidth < 768 && window.innerWidth > 368 ? 2.3 : 2.3
+    const pages = window.innerWidth >= 1024 ? 3.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 5.2 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.7 : 5.2
+    const page1offset = window.innerWidth >= 1024 ? 1.99 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.1 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2.2 : 2.7
+    const pageOffset2 = window.innerWidth >= 1024 ? 3.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.3 : 4.8
     
+    const factor1 = window.innerWidth >= 1024 ? 2.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.999 : window.innerWidth < 768 && window.innerWidth >= 580 ? 3.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.1 : 5.3
+    const factor2 = window.innerWidth >= 1024 ? 2.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 3.4 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2.7 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3.2 : 5.3
+   
     const services = [
         // {id:1,title:"Consulting & Training",
         //     description:"Our Consulting practice designs and implements solutions related to Predictive Analytics, Risk Management, Software Development.  Our Training vertical caters to custom requirements in Blockchain, Machine Learning and Risk Analytics."
@@ -61,17 +65,17 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
     // <Section className={"relative"}>
     // </Section>
     <main className='relative w-full h-full'>
-    <Parallax pages={3.1}>
+    <Parallax pages={pages}>
         <ParallaxLayer   offset={0} factor={1} speed={1}>
             <section ref={pageOneRef}  className='flex w-full h-full flex-col items-center  justify-center'>
-                <div className='relative min-h-screen w-full'>
+                <div className='relative min-h-screen bg-black w-full'>
                     <Hero />
                 </div>
             </section>
 
         </ParallaxLayer>
 
-        <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={2.1}>
+        <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={factor1}>
            <Section className={""}>
            <section  className='text-gray-900 w-full flex flex-col gap-24 h-full py-12 px-5'>
                 <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 justify-center">
@@ -134,7 +138,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
            </Section>
         </ParallaxLayer>
 
-        <ParallaxLayer className='bg-white text-black' offset={1.5} factor={2.3} speed={1}>
+        <ParallaxLayer className='bg-white text-black' offset={page1offset} factor={factor2} speed={0.5}>
             <section className={' flex flex-col items-center justify-center gap-12 py-12'}>
                 <div className='max-w-6xl mx-auto  gap-5 flex flex-col items-center justify-center'>
                     <h1 className='h2 text-center'>Software Products</h1>
@@ -142,8 +146,8 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                          Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
                          Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
-            <div className='w-full h-[580px] md:h-full overflow-x-scroll md:overflow-clip hide-scrollbar px-4 py-2 relative'> 
-            <div className='w-fit flex items-center justify-center flex-nowrap md:flex-wrap gap-10'>
+            <div className='w-full h-[590px] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
+            <div className='w-fit flex items-center justify-center flex-nowrap  xl:flex-wrap gap-6'>
                {
                 services.map((service, index) => {
                     return (
@@ -227,7 +231,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
             </section>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2.8} factor={0.3}>
+        <ParallaxLayer offset={pageOffset2} factor={0.4} >
         <Footer />
         </ParallaxLayer>
     </Parallax>

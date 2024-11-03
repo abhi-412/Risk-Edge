@@ -7,6 +7,8 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { useEffect, useRef, useState } from 'react'
   import { debounce } from 'lodash';
 import Footer from './Components/Footer.jsx'
+import About from './Pages/About.jsx'
+import Contact from './Pages/Contact.jsx'
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
           <Navbar navbarRef={navbarRef} navbarColor={navbarColor} />
         <Routes>
             <Route path='/' element={<Home pageOneRef={pageOneRef} pageTwoRef={pageTwoRef} pageThreeRef={pageThreeRef} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
         </Routes>
       </Router>
   )

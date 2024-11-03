@@ -6,7 +6,7 @@ import { IoIosMail } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className=" bg-gray-900 absolute bottom-0 w-full  py-8 text-white">
+    <div className=" bg-[#eff1fe] w-full  py-8 text-black">
   <div className="left-0 w-full ">
     <div className="flex flex-wrap justify-center items-center">
       {/* Logo and Description */}
@@ -18,7 +18,7 @@ const Footer = () => {
             width="160"
             className="mb-4"
           />
-          <p>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players.</p>
+          <p className='body-2'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players.</p>
         </div>
       </div>
 
@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="w-1/2 md:w-1/4 flex justify-center px-4 mb-8 md:mb-0">
         <div className="text-left">
           <h4 className="footer-title mt-0 text-lg font-semibold mb-4">Solutions</h4>
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-sm">
             <li><a href="http://riskedge.local/predictive-analytics-apps/" className="hover:text-gray-300">Machine Learning</a></li>
             <li><a href="http://riskedge.local/market-edge/" className="hover:text-gray-300">Market Edge</a></li>
             <li><a href="/plan-edge/" className="hover:text-gray-300">Plan Edge</a></li>
@@ -38,7 +38,7 @@ const Footer = () => {
       </div>
 
       {/* About Us Links */}
-        <div className="w-1/2 md:w-1/4 flex justify-center  px-4">
+        <div className="w-1/2 md:w-1/4 flex justify-center text-sm px-4">
             <div className="text-left">
             <h4 className="footer-title mt-0 text-lg font-semibold mb-4">About us</h4>
             <ul className="space-y-2">
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
         </div>
 
-        <div className="w-full md:w-1/4 flex justify-center  px-4 ">
+        <div className="w-full md:w-1/4 flex justify-center text-sm  px-4 ">
             <div className="text-left">
             <h4 className="footer-title mt-0 text-lg font-semibold mb-4">Reach Out to Us</h4>
             <ul className="space-y-3">

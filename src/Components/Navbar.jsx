@@ -12,7 +12,7 @@ const Navbar = ({navbarRef,navbarColor}) => {
   },[])
 
     return (
-      <nav ref={navbarRef} className={`absolute top-0 right-0 w-full z-10 bg-black`}>
+      <nav ref={navbarRef} className={`absolute top-0 left-0 w-[98.9vw]  z-10 bg-black`}>
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo.footerLogo} alt="" className="w-24 h-12" />
@@ -26,19 +26,19 @@ const Navbar = ({navbarRef,navbarColor}) => {
           <div hidden={!openMenu} className="transition transform duration-300 w-full md:block md:w-auto" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4   rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 ">
               <li>
-                <a href="#" className="block py-2 px-3 text-white rounded md:bg-transparent  md:p-0" aria-current="page">Home</a>
+                <a href="/" className="block py-2 px-3 text-white rounded md:bg-transparent  md:p-0" aria-current="page">Home</a>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">About</a>
+                <a href="/about" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">About</a>
               </li>
               <li>
                 <a href="#" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">Services</a>
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">Pricing</a>
+                {/* <a href="#" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">Pricing</a> */}
               </li>
               <li>
-                <a href="#" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">Contact</a>
+                <a href="/contact" className="block py-2 px-3 text-gray-400 rounded hover:text-white md:p-0">Contact</a>
               </li>
             </ul>
           </div>
