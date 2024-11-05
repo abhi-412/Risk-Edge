@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BreadcrumbItem = ({ children, href, isCurrent }) => {
+const BreadcrumbItem = ({ children, href, isCurrent,bg }) => {
   return (
     <li className={isCurrent ? '' : 'inline-flex items-center'}>
       {isCurrent ? (
@@ -20,12 +20,12 @@ const BreadcrumbItem = ({ children, href, isCurrent }) => {
               d="m1 9 4-4-4-4"
             />
           </svg> */}
-          <span className="ms-1 text-sm font-medium text-gray-800 md:ms-2 ">{children}</span>
+          <span className={`ms-1 text-sm font-medium text-${bg} md:ms-2 `}>{children}</span>
         </div>
       ) : (
         <a
           href={href}
-          className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600  dark:hover:text-gray-600 hover:underline"
+          className={`inline-flex items-center text-sm font-medium text-${bg} hover:underline`}
         >
           <svg
             className="w-3 h-3 me-2.5"
@@ -55,7 +55,7 @@ const Breadcrumb = ({ items }) => {
             {index < items?.length - 1 && (
               <div className="flex items-center">
                 <svg
-                  className="rtl:rotate-180 w-3 h-3 text-gray-700 mx-1"
+                  className={`rtl:rotate-180 w-3 h-3 text-gray-800 mx-1`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

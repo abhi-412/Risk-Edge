@@ -7,6 +7,10 @@ import icons from '../utils/icons'
 import Footer from '../Components/Footer'
 import images from '../utils/images'
 import ServiceCard from '../Components/ServiceCard'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all'
+
 
 const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
@@ -22,12 +26,12 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
         });
     };
 
-    const pages = window.innerWidth >= 1024 ? 3.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 5.2 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.7 : 5.2
-    const page1offset = window.innerWidth >= 1024 ? 1.99 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.1 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2.2 : 2.7
-    const pageOffset2 = window.innerWidth >= 1024 ? 3.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.3 : 4.8
+    // const pages = window.innerWidth >= 1024 ? 3.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 5.2 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3.8 : 5.2
+    // const page1offset = window.innerWidth >= 1024 ? 1.99 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.1 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2 : 2.7
+    // const pageOffset2 = window.innerWidth >= 1024 ? 3.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3 : 4.8
     
-    const factor1 = window.innerWidth >= 1024 ? 2.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.999 : window.innerWidth < 768 && window.innerWidth >= 580 ? 3.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4.1 : 5.3
-    const factor2 = window.innerWidth >= 1024 ? 2.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 3.4 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2.7 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3.2 : 5.3
+    // const factor1 = window.innerWidth >= 1024 ? 2.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.999 : window.innerWidth < 768 && window.innerWidth >= 580 ? 3.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4 : 5.3
+    // const factor2 = window.innerWidth >= 1024 ? 2.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 3.4 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2.7 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2 : 5.3
    
     const services = [
         // {id:1,title:"Consulting & Training",
@@ -60,24 +64,95 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
     ]
 
+    gsap.registerPlugin(ScrollTrigger) 
+
+  useGSAP(()=>{
+    gsap.fromTo(".sec-1",{
+        y:"50",
+        opacity:0
+    },{
+        opacity:1,
+        y:0,
+        duration: 1.5,
+        delay: 0.5,
+        stagger:0.2,
+        scrollTrigger:{
+        trigger:"#page2",
+        
+        scroller:"body",
+        scrub:4
+        }
+    }
+    )
+
+    gsap.fromTo(".sec-1 p",{
+        y:"50",
+        opacity:0
+    },{
+        opacity:1,
+        y:0,
+        duration: 1.5,
+        delay: 0.5,
+        stagger:0.5,
+        scrollTrigger:{
+            trigger:"#page2",
+            
+            scroller:"body",
+            // start:"top 50%",
+            // scrub:4
+            }
+    }
+    )
+
+    gsap.fromTo(".sec-1 img",{
+        y:"10",
+    },{
+        y:0,
+        duration: 1.5,
+        delay: 1,
+        repeat:-1,
+        yoyo:true,
+        scrollTrigger:{
+            trigger:"#page2",
+            
+            scroller:"body",
+            }
+    }
+    )
+
+    gsap.from(".box div",{
+        y:300,
+        duration: 1,
+        delay: 0,
+        stagger:0.2,
+        scrollTrigger:{
+            trigger:".box",
+            
+            // scroller:"body",
+            // start:"top 50%",
+            // scrub:2
+        }
+    })
+  },[scrollY])
+
 
   return (
     // <Section className={"relative"}>
     // </Section>
     <main className='relative w-full h-full'>
-    <Parallax pages={pages}>
-        <ParallaxLayer   offset={0} factor={1} speed={1}>
-            <section ref={pageOneRef}  className='flex w-full h-full flex-col items-center  justify-center'>
+    {/* <Parallax pages={pages}>
+        <ParallaxLayer   offset={0} factor={1} speed={1}> */}
+            <section ref={pageOneRef}  className=' flex w-full h-full flex-col items-center  justify-center'>
                 <div className='relative min-h-screen bg-black w-full'>
                     <Hero />
                 </div>
             </section>
 
-        </ParallaxLayer>
+        {/* </ParallaxLayer>
 
-        <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={factor1}>
-           <Section className={""}>
-           <section  className='text-gray-900 w-full flex flex-col gap-24 h-full py-12 px-5'>
+        <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={factor1}> */}
+           
+           <section   className='text-gray-900   w-full flex flex-col gap-24  py-24'>
                 <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 justify-center">
                         <h1 className='h1'>What We Do?</h1>
                         {/* <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2> */}
@@ -85,8 +160,8 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                         Risk Edge was founded in 2013, to fill a desperate need for scalable and configurable Analytics Solutions for Commodities and Energy industry. The Industry needed solutions that were truly built for their problems, used latest technologies to deliver massive & complex computational results fast. Risk Edge has done pioneering work in solving problems using Machine Learning and AI. By using latest advancements in software architecture and hardware, Risk Edge delivers solutions that enable decision making with high precision levels at blazing speed for its clients. 
                         </p>
                 </div>
-                <div className='grid md:grid-cols-2 grid-cols-1 md:p-12 p-4 gap-12'>
-                    <div className='col-span-1 md:gap-10 md:px-12 px-3 space-y-12'>
+                <div id='page2' className='grid md:grid-cols-2 grid-cols-1 md:p-12 p-4 gap-12'>
+                    <div className='col-span-1 sec-1 md:gap-10 md:px-12 px-3 space-y-12'>
                         <div className='flex flex-col gap-5 items-start justify-center'>
                             <img src={icons.computer} alt="computer" />
                             <h4 className="h5 font-semibold">Machine Learning</h4>
@@ -102,7 +177,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
                         </div> */}
                     </div>
-                    <div className='col-span-1 md:gap-10 space-y-12 md:px-12 px-3'>
+                    <div className='col-span-1 sec-1  md:gap-10 space-y-12 md:px-12 px-3'>
                         <div className='flex flex-col items-start justify-center gap-5'>
                             <img src={icons.stack} alt="" />
                             <h4 className="h5 font-semibold">VaR Edge</h4>
@@ -135,19 +210,18 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
                 
             </section>
-           </Section>
-        </ParallaxLayer>
+        {/* </ParallaxLayer> */}
 
-        <ParallaxLayer className='bg-white text-black' offset={page1offset} factor={factor2} speed={0.5}>
-            <section className={' flex flex-col items-center justify-center gap-12 py-12'}>
-                <div className='max-w-6xl mx-auto  gap-5 flex flex-col items-center justify-center'>
+        {/* <ParallaxLayer className='bg-white text-black' offset={page1offset} factor={factor2} speed={0.5}> */}
+            <section id='page3' className={'flex flex-col items-center justify-center gap-12 py-12'}>
+                <div className='max-w-6xl text-black   mx-auto  gap-5 flex flex-col items-center justify-center'>
                     <h1 className='h2 text-center'>Software Products</h1>
                     <p className='body-1 text-center'>Risk Edge has several software solutions and platforms for delivering custom-designed and powerful Machine Learning & Risk Analytics solution.
                          Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
                          Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
             <div className='w-full h-[590px] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
-            <div className='w-fit flex items-center justify-center flex-nowrap  xl:flex-wrap gap-6'>
+            <div className='w-fit box flex items-center justify-center flex-nowrap  xl:flex-wrap gap-6'>
                {
                 services.map((service, index) => {
                     return (
@@ -157,20 +231,6 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                }
                 
             </div>
-            </div>
-            <div className="flex md:hidden">
-                <a href="#" className="flex items-center justify-center px-3 h-8 me-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-                    </svg>
-                    Previous
-                </a>
-                <a href="#" className="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    Next
-                    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
             </div>
 
             {/* <div className='relative w-full'> */}
@@ -229,12 +289,12 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
 
             </section>
-        </ParallaxLayer>
+        {/* </ParallaxLayer>
 
-        <ParallaxLayer offset={pageOffset2} factor={0.4} >
+        <ParallaxLayer offset={pageOffset2} factor={0.4} > */}
         <Footer />
-        </ParallaxLayer>
-    </Parallax>
+        {/* </ParallaxLayer>
+    </Parallax> */}
     
     {/* // <Footer /> */}
     

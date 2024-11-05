@@ -82,8 +82,9 @@ body,html,#root {
 
 * {
   scroll-behavior: smooth;
-  /* scrollbar-width: thin; */
 }
+
+
 
 
 /* @layer base {

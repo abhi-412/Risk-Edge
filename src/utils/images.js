@@ -5,6 +5,7 @@ import specificApp from "../assets/images/specificApp.jpg";
 import planEdge from "../assets/images/plan-edge.png";
 import anomalyDetection from "../assets/images/anomaly-detection.jpg";
 import predictEdge from "../assets/images/predict-edge.jpg";
+import minMin from "../assets/images/min-min.jpg";
 
 export default {
     prod1Img,
@@ -13,5 +14,6 @@ export default {
     specificApp,
     planEdge,
     anomalyDetection,
-    predictEdge
+    predictEdge,
+    minMin
 };

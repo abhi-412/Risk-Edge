@@ -16,7 +16,7 @@ const Contact = () => {
     <div className='bg-white flex flex-col gap-6 justify-center  items-center mt-24 pb-12 text-black '>
         <div className='w-full h-36  flex justify-center items-start p-5 flex-col'>
         <h1 className='h2 mb-8'>Contact Us</h1>
-            <Breadcrumb items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'Contact', href: '/contact', isCurrent: true }]} />
+            <Breadcrumb bg={"black"} items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'Contact', href: '/contact', isCurrent: true }]} />
         </div>
 
       <div className='grid grid-cols-2 w-full gap-10 lg:p-12 p-5'>
