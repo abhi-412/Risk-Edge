@@ -26,7 +26,7 @@ const About = () => {
   return (
     <>
                 <section className='w-full  flex flex-col justify-center mb-10 text-black items-start  gap-4'>
-                    <div className='w-full md:px-12 px-3 mt-16 bg-white text-black flex flex-col justify-center items-start gap-5 p-5'>
+                    <div className='w-full md:px-12 px-3 mt-24 bg-white text-black flex flex-col justify-center items-start gap-5 p-5'>
                         <h1 className='h2 '>The Company</h1>
                         <Breadcrumb bg={"black"} items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'About', href: '/about', isCurrent: true }]} />
                     </div>
@@ -146,13 +146,7 @@ const About = () => {
                             </a>
                             . We respond to every personalized email!
                             </p>
-                            <a
-                            role="button"
-                            href="/client-case-studies/"
-                            className="inline-block mt-4 text-blue-600 hover:underline"
-                            >
-                            View Client Case Studies
-                            </a>
+                            
                         </div>
                         </div>
 
