@@ -1,8 +1,5 @@
 import React from 'react'
-import Section from '../Components/Section'
 import Hero from '../Components/Hero'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import aiHuman from "../assets/aiRobot.jpg"
 import icons from '../utils/icons'
 import Footer from '../Components/Footer'
 import images from '../utils/images'
@@ -69,12 +66,10 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
   useGSAP(()=>{
     gsap.fromTo(".sec-1",{
         y:"50",
-        opacity:0
     },{
-        opacity:1,
         y:0,
         duration: 1.5,
-        delay: 0.5,
+        // delay: 0.5,
         stagger:0.2,
         scrollTrigger:{
         trigger:"#page2",
@@ -87,12 +82,10 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
     gsap.fromTo(".sec-1 p",{
         y:"50",
-        opacity:0
     },{
-        opacity:1,
         y:0,
         duration: 1.5,
-        delay: 0.5,
+        // delay: 0.5,
         stagger:0.5,
         scrollTrigger:{
             trigger:"#page2",
@@ -109,7 +102,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
     },{
         y:0,
         duration: 1.5,
-        delay: 1,
+        // delay: 1,
         repeat:-1,
         yoyo:true,
         scrollTrigger:{
@@ -153,60 +146,60 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
         <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={factor1}> */}
            
            <section   className='text-gray-900   w-full flex flex-col gap-24  py-24'>
-                <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 justify-center">
+                <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 p-2 justify-center">
                         <h1 className='h1'>What We Do?</h1>
                         {/* <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2> */}
                         <p className='tap-highlight-color body-1'>
                         Risk Edge was founded in 2013, to fill a desperate need for scalable and configurable Analytics Solutions for Commodities and Energy industry. The Industry needed solutions that were truly built for their problems, used latest technologies to deliver massive & complex computational results fast. Risk Edge has done pioneering work in solving problems using Machine Learning and AI. By using latest advancements in software architecture and hardware, Risk Edge delivers solutions that enable decision making with high precision levels at blazing speed for its clients. 
                         </p>
                 </div>
-                <div id='page2' className='grid md:grid-cols-2 grid-cols-1 md:p-12 p-4 gap-12'>
+                <div id='page2' className='grid md:grid-cols-2 grid-cols-1 md:p-12 p-0 gap-12'>
                     <div className='col-span-1 sec-1 md:gap-10 md:px-12 px-3 space-y-12'>
-                        <div className='flex flex-col gap-5 items-start justify-center'>
+                        <a href='/predictive-analytics-apps' className='flex flex-col gap-5 items-start justify-center'>
                             <img src={icons.computer} alt="computer" />
                             <h4 className="h5 font-semibold">Machine Learning</h4>
                             <p className="body-2">Risk Edge’s “Predictive Engine” is built specifically for Commodity & Energy businesses to help you understand hidden patterns, risks, and price trends so businesses can be understood as a whole, and not just in parts! The in-built models give you a simple, never-before view of your data!</p>
-                        </div>
-                        <div className='flex flex-col gap-5 items-start justify-center'>
+                        </a>
+                        <a href='/market-edge' className=' flex flex-col gap-5 items-start justify-center'>
                             <img src={icons.building} alt="" />
                             <h4 className="h5 font-semibold">Market Edge</h4>
                             <p className="body-2">Market Edge is an AI-driven, web-based solution to apply analytics to price data of Commodities and Energy. With Machine Learning based forecasting, advanced visualizations and loads of technical analysis indicators and their finger-tips, Market Edge gives both Traders and Risk Managers an edge over many others in the market.</p>
-                        </div>
+                        </a>
                         {/* <div className='flex flex-col items-start justify-center'>
                         <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
                         </div> */}
                     </div>
                     <div className='col-span-1 sec-1  md:gap-10 space-y-12 md:px-12 px-3'>
-                        <div className='flex flex-col items-start justify-center gap-5'>
+                        <a href='/var-edge' className='flex flex-col items-start justify-center gap-5'>
                             <img src={icons.stack} alt="" />
                             <h4 className="h5 font-semibold">VaR Edge</h4>
                             <p className="body-2">RiskEdge does valuation & risk (Value-at-Risk, Expected Shortfall) calculations for all your physical and derivative positions and across counterparties. Its’ Powerful Engine delivers accurate results fast, even with computation intensive methods like Monte-Carlo.</p>
-                        </div>
-                        <div className='flex flex-col items-start justify-center gap-5'>
+                        </a>
+                        <a href="/plan-edge" className='flex flex-col items-start justify-center gap-5'>
                             <img src={icons.computer} alt="" />
                             <h4 className="h5 font-semibold">Plan Edge</h4>
                             <p className="body-2">PLAN EDGE is an AI powered, Digital FP&A platform that provides instantaneous insights throughout the year with cognitive, machine learning capabilities and predictive analysis on past, present and future performances It allows CFOs to connect their planning exercise with people across divisions The solution contributes directly to better planning, and more agile decision making across the board.</p>
-                        </div>
+                        </a>
                         {/* <div className='flex flex-col items-start justify-center gap-5'>
                         <h4 className="h5 font-semibold">Kostenloses Erstgespräch</h4>
                         <p className="body-1">Sie haben eine Idee? Lassen Sie uns in einem 30 minütigen Strategie-Gespräch zusammensitzen. Das ganze ist kostenlos und unverbindlich.</p>
                         </div> */}
                     </div>
                 </div>
-                <div className='w-full  flex items-center justify-center'>
+                {/* <div className='w-full  flex items-center justify-center'>
                     <div className='relative group'>
                     <div className='absolute group-hover:opacity-100 transition duration-1000 group-hover:duration-200 -inset-0.5 bg-gradient-to-r blur from-pink-600 to-purple-600 opacity-75 rounded-lg'></div>
 
                         <button className='px-8 py-4 bg-black leading-none relative rounded-lg'>
 
-                            <div className='flex space-x-4 divide-x divide-gray-600'>
-                                <span className='pr-4 text-gray-200 group-hover:text-white transition duration-200'>Go to our Portfolio</span>
-                                <span className='pl-8 text-blue-600 group-hover:text-white transition duration-1000 group-hover:duration-200'>Click Here</span>
+                            <div className='flex flex-wrap space-x-4 divide-x divide-gray-600'>
+                                <span className='pr-4 text-gray-200 group-hover:text-white transition text-nowrap text-xs md:text-base duration-200'>Go to our Portfolio</span>
+                                <span className='pl-8 text-blue-600 group-hover:text-white transition text-nowrap duration-1000 text-xs md:text-base group-hover:duration-200'>Click Here</span>
                             </div>
                         </button>
                     </div>
-                </div>
+                </div> */}
 
                 
             </section>
@@ -220,7 +213,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                          Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
                          Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
-            <div className='w-full h-[590px] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
+            <div className='w-full lg:max-w-6xl h-[590px] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
             <div className='w-fit box flex items-center justify-center flex-nowrap  xl:flex-wrap gap-6'>
                {
                 services.map((service, index) => {

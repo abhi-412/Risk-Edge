@@ -1,16 +1,34 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import React from 'react'
 import images from '../utils/images'
+import icons from '../utils/icons'
 import Footer from '../Components/Footer'
 import Breadcrumb from '../Components/BreadCrumb'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 const About = () => {
+
+
+    useGSAP(()=>{
+    const tl = gsap.timeline();
+
+        tl.from(".logoImg",{
+            y:10,
+            repeat:-1,
+            yoyo:true,
+            duration:1.5,
+            delay:0.5,
+        })
+
+    },[scroll])
+
   return (
     <>
-                <section className='w-full mt-20 flex flex-col justify-center mb-10 text-black items-start  gap-4'>
-                    <div className='w-full px-12 bg-black text-white flex flex-col justify-center items-start gap-5 p-5'>
-                        <h1 className='h1 '>The Company</h1>
-                    <Breadcrumb bg={"white"} items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'About', href: '/about', isCurrent: true }]} />
+                <section className='w-full  flex flex-col justify-center mb-10 text-black items-start  gap-4'>
+                    <div className='w-full md:px-12 px-3 mt-16 bg-white text-black flex flex-col justify-center items-start gap-5 p-5'>
+                        <h1 className='h2 '>The Company</h1>
+                        <Breadcrumb bg={"black"} items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'About', href: '/about', isCurrent: true }]} />
                     </div>
                 <div className="container my-8 mx-auto px-4">
                     <div className="flex flex-wrap">
@@ -18,22 +36,22 @@ const About = () => {
                         <div className="w-full xl:w-2/3">
                         <div className="w-full flex flex-col gap-2">
                             <p className="text-lg font-semibold">Your Analytics Partner</p>
-                            <h3 className="text-3xl font-bold text-gray-800 ">Risk Edge Solutions</h3>
+                            <h3 className="h2 font-bold text-gray-800 ">Risk Edge Solutions</h3>
                             <img
                             decoding="async"
                             src={images.minMin}
                             alt="drive10"
-                            className="my-4 w-full h-auto"
+                            className="my-4 md:w-2/3 w-full h-auto"
                             />
-                            <p>
+                            <p className='body-2'>
                             Risk Edge was founded in 2013, to fill a desperate need for scalable and configurable Analytics Solutions
                             for Commodities and Energy industry. The Industry needed solutions that were truly built for their
                             problems, used latest technologies to deliver massive & complex computational results fast.
                             </p>
 
-                            <h2 className="text-2xl font-semibold mt-6 mb-4">About Us</h2>
-                            <h2 className="text-xl font-bold text-gray-800 ">What We Do</h2>
-                            <p>
+                            <h2 className="h3 font-semibold mt-6 mb-4">About Us</h2>
+                            <h2 className="h4 font-bold text-gray-800 ">What We Do</h2>
+                            <p className='body-2'>
                             Today, as a young & innovative company, Risk Edge offers advanced solutions for Machine Learning and
                             Analytics needs of medium and large enterprises. With several large clients under its belt and hands-on
                             experience with real datasets, Risk Edge’s Machine Learning & Analytics practice enables{' '}
@@ -49,10 +67,10 @@ const About = () => {
                             decoding="async"
                             src="http://riskedge.local/wp-content/uploads/2020/10/pexels-fauxels-3184418.jpg"
                             alt=""
-                            className="my-4 w-2/3"
+                            className="my-4 md:w-2/3 w-full"
                             />
 
-                            <p>
+                            <p className='body-2'>
                             Risk Edge also provides Risk Management{' '}
                             <a href="/risk-edge-software/" className="text-blue-600 hover:underline">
                                 Software
@@ -66,16 +84,16 @@ const About = () => {
                             Policies & Outsourced Risk Services for small to medium sized companies.
                             </p>
 
-                            <h2 className="text-xl font-bold text-gray-800  mt-6">What Sets Us Apart</h2>
+                            <h2 className="h4 font-bold text-gray-800  mt-6">What Sets Us Apart</h2>
                             <img
                             decoding="async"
                             title="16"
-                            src="http://riskedge.local/wp-content/uploads/2020/06/16.png"
+                            src={icons.building}
                             alt="img"
-                            className="my-4 w-10 h-10"
+                            className="my-4 w-16 h-16 logoImg"
                             />
-                            <h5 className="text-lg font-semibold text-gray-800 ">We value Simplicity</h5>
-                            <p>
+                            <h5 className="h5 font-semibold text-gray-800 ">We value Simplicity</h5>
+                            <p className='body-2'>
                             Our web-based solutions are easy to use and can be integrated with any existing in-house / 3rd party
                             systems or even with excels and can be deployed either on-premise or on Cloud. Most of our solutions use
                             in-memory computations with real-time simulations and interactive visualizations.
@@ -83,12 +101,12 @@ const About = () => {
                             <img
                             decoding="async"
                             title="17"
-                            src="http://riskedge.local/wp-content/uploads/2020/06/17.png"
+                            src={icons.stack}
                             alt="img"
-                            className="my-4 w-12 h-12"
+                            className="my-4 w-16 h-16 logoImg"
                             />
-                            <h5 className="text-lg font-semibold text-gray-800 ">We dig Innovation</h5>
-                            <p>
+                            <h5 className="h5 font-semibold text-gray-800 ">We dig Innovation</h5>
+                            <p className='body-2'>
                             Risk Edge has done pioneering work in solving problems using Machine Learning and AI for Energy and
                             Commodity Trading Industry. By using latest advancements in software architecture and hardware, Risk Edge
                             delivers solutions that enable decision making with high precision levels at blazing speed for its
@@ -97,12 +115,12 @@ const About = () => {
                             <img
                             decoding="async"
                             title="16"
-                            src="http://riskedge.local/wp-content/uploads/2020/06/16.png"
+                            src={icons.building}
                             alt="img"
-                            className="my-4 w-12 h-12"
+                            className="my-4 w-16 h-16 logoImg"
                             />
-                            <h5 className="text-lg font-semibold text-gray-800 ">Our “Edge” is Transparency and Trust</h5>
-                            <p>
+                            <h5 className="h5 font-semibold text-gray-800 ">Our “Edge” is Transparency and Trust</h5>
+                            <p className='body-2'>
                             We are social, and very open about what we think of and how we do Predictive Analytics and Risk Analytics.
                             Risk Edge’s Research, Blog, are all made with extreme care by our Research team and are available for free
                             to everyone from the industry. We already have hundreds of subscribers on our list made up of who’s-who of
@@ -110,12 +128,12 @@ const About = () => {
                             </p>
                             <img
                             decoding="async"
-                            src="http://riskedge.local/wp-content/uploads/2020/10/contact-us-2993000_640.jpg"
+                            src={images.contactUS}
                             alt=""
-                            className="my-4 w-2/3"
+                            className="my-4 w-full md:w-2/3"
                             />
-                            <h2 className="text-xl font-bold text-gray-800  mt-6">Get in Touch with Us</h2>
-                            <p>
+                            <h2 className="h3 font-bold text-gray-800  mt-6">Get in Touch with Us</h2>
+                            <p className='body-2'>
                             To know how Risk Edge can help you with Data / Risk Analytics, build AI Solutions to solve your problems,
                             or to find a newer, better way of solving many of your strategic / operational issues, write to our
                             business development team with your requirements on{' '}

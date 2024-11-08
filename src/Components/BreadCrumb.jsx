@@ -43,7 +43,8 @@ const BreadcrumbItem = ({ children, href, isCurrent,bg }) => {
   );
 };
 
-const Breadcrumb = ({ items }) => {
+const Breadcrumb = ({ items,bg }) => {
+  
   return (
     <nav className="flex" aria-label="Breadcrumb">
       <ol className="inline-flex items-center  space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -55,7 +56,7 @@ const Breadcrumb = ({ items }) => {
             {index < items?.length - 1 && (
               <div className="flex items-center">
                 <svg
-                  className={`rtl:rotate-180 w-3 h-3 text-gray-800 mx-1`}
+                  className={`rtl:rotate-180 w-3 h-3 text-${bg} mx-1`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

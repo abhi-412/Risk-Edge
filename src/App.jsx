@@ -9,6 +9,8 @@ import { useEffect, useRef, useState } from 'react'
 import Footer from './Components/Footer.jsx'
 import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
+import Services from './Pages/Services.jsx'
+import solutions from './utils/Solutions.js'
 
 
 function App() {
@@ -54,6 +56,9 @@ function App() {
             <Route path='/' element={<Home pageOneRef={pageOneRef} pageTwoRef={pageTwoRef} pageThreeRef={pageThreeRef} />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
+            {solutions.map((sol)=>{
+                return <Route key={sol.id} path={`/${sol.slug}`} element={<Services solution={sol} />} />
+            })}
         </Routes>
       </Router>
   )

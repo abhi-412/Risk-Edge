@@ -20,14 +20,16 @@ const ContactForm = () => {
     },
     validationSchema: Yup.object({
       salutation: Yup.string().required('Required'),
-      firstname: Yup.string().required('Required'),
-      lastname: Yup.string().required('Required'),
+      firstname: Yup.string().required('Required').min(3,"Minimum 3 letters."),
+      lastname: Yup.string().required('Required').min(3,"Minimum 3 letters."),
       email: Yup.string().email('Invalid email address').required('Required'),
-      budget: Yup.string().required('Required'),
-      message: Yup.string().required('Required'),
+      phone: Yup.number().required('Required').min(1000000000,"Must be 10 digits").max(9999999999,"Must be less than 10 digits"),
+      budget: Yup.number().required('Required').min(0,"Must be greater than 0"),
+      message: Yup.string().required('Required').min(50,"Minimum 10 words."),
     }),
     onSubmit: (values) => {
         setSubmitting(true);
+        // alert(JSON.stringify(formik.values))
       setHasSubmitted(true);
       emailjs.sendForm(
         'YOUR_SERVICE_ID',
@@ -39,11 +41,13 @@ const ContactForm = () => {
           console.log(result.text);
           alert('Message Sent!');
           setSubmitting(false);
+          formik.resetForm();
         },
         (error) => {
           console.log(error.text);
           alert('Failed to send message.');
           setSubmitting(false);
+          formik.resetForm();
         }
       );
     },
@@ -55,15 +59,18 @@ const ContactForm = () => {
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
         <div className="relative shadow-md bg-white">
-                <input
-                    type="text"
-                    name='salutation'
-                    onChange={formik.handleChange}
-                    value={formik.values.salutation}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="salutation"
-                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <select 
+                onChange={formik.handleChange}
+                value={formik.values.salutation}
+                onBlur={formik.handleBlur}
+                required
+                id="salutation"
+                className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer"
+                >
+                  <option value="">Select</option>
+                  <option value="Mr.">Mister</option>
+                  <option value="Ms.">Miss</option>
+                </select>
                 <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Salutation</label>
             </div>
           {formik.touched.salutation && formik.errors.salutation && hasSubmitted && (
