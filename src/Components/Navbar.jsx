@@ -38,7 +38,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="flex flex-col gap-3 w-full">
+    <nav className="fixed top-0 z-10 flex flex-col gap-3 w-full">
       <div 
       
       className="flex justify-between w-full bg-black border-gray-200 items-center  px-6 py-4">
