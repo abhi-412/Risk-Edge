@@ -68,10 +68,10 @@ const ContactForm = () => {
                 className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer"
                 >
                   <option value="">Select</option>
-                  <option value="Mr.">Mister</option>
-                  <option value="Ms.">Miss</option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Ms.">Ms.</option>
                 </select>
-                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Salutation</label>
+                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
             </div>
           {formik.touched.salutation && formik.errors.salutation && hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.salutation}</p>
