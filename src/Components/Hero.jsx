@@ -70,11 +70,11 @@ const Hero = () => {
             <ambientLight />
               <SineMotion  />
             </Canvas>
-            <div className='absolute top-60 md:top-40 w-full  grid grid-cols-8 gap-3 items-center'>
-                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 col-span-6 mb-3 md:col-start-4 col-start-2 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>RISK EDGE</h1>
+            <div className='absolute top-60 md:top-50 w-full  grid grid-cols-8 gap-3 items-center'>
+                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 col-span-6 mb-0 md:col-start-4 col-start-2 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>RISK EDGE</h1>
                 {/* <h1 data-value="PRIVATE LIMITED" onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 col-span-6 mb-3 md:col-start-3 col-start-2 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>PRIVATE LIMITED</h1> */}
                 <h3 className='md:col-span-4 col-span-7 col-start-2 md:col-start-3 text-xs md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
-                <button onClick={() => {navigate('/about')}} className='btn col-span-5 md:col-span-2 md:col-start-4 col-start-2 text-center text-nowrap bg-cyan-600 hover:bg-transparent hover:border-4 hover:border-cyan-400 hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2'>Learn More</button>
+                <button onClick={() => {navigate('/about')}} className='btn col-span-3 md:col-span-2  md:col-start-4 col-start-2 text-center text-nowrap bg-cyan-600 hover:bg-transparent hover:border-4 hover:border-cyan-400 hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2 mt-1'>Learn More</button>
             </div>
         </Suspense>
   )

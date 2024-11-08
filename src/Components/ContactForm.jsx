@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
+import useAlert from "../Components/useAlert"
+import Alert from "../Components/Alert"
 
 const ContactForm = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const formRef = useRef();
+  const { alert, showAlert, hideAlert } = useAlert();
+  const [loading, setLoading] = useState(false);
+
+  
 
   const formik = useFormik({
     initialValues: {
@@ -28,33 +35,53 @@ const ContactForm = () => {
       message: Yup.string().required('Required').min(50,"Minimum 10 words."),
     }),
     onSubmit: (values) => {
-        setSubmitting(true);
-        // alert(JSON.stringify(formik.values))
+      setLoading(true);
+      setSubmitting(true)
       setHasSubmitted(true);
       emailjs.sendForm(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        '#contactForm',
-        'YOUR_USER_ID'
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       ).then(
-        (result) => {
-          console.log(result.text);
-          alert('Message Sent!');
-          setSubmitting(false);
-          formik.resetForm();
+        () => {
+          setLoading(false);
+          showAlert({
+            show: true,
+            text: "Thank you for your message 😃",
+            type: "success",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setSubmitting(false);
+            formik.resetForm();
+          }, [3000]);
         },
         (error) => {
-          console.log(error.text);
-          alert('Failed to send message.');
+          setLoading(false);
+          console.error(error);
           setSubmitting(false);
-          formik.resetForm();
+
+          showAlert({
+            show: true,
+            text: "I didn't receive your message 😢",
+            type: "danger",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setSubmitting(false);
+           formik.resetForm()
+          }, [3000]);
         }
       );
     },
   });
 
   return (
-    <form id="contactForm" onSubmit={(e) => { setHasSubmitted(true); formik.handleSubmit(e); }} className="space-y-8 lg:p-8 p-4 h-full  rounded bg-gray-100">
+    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-4 h-full  rounded bg-gray-100">
+       {alert.show && <Alert {...alert} />}
       {/* Salutation and Company */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
