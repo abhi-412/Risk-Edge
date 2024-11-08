@@ -70,7 +70,7 @@ const Hero = () => {
             <ambientLight />
               <SineMotion  />
             </Canvas>
-            <div className='absolute top-40 w-full  grid grid-cols-8 gap-3 items-center'>
+            <div className='absolute top-60 md:top-40 w-full  grid grid-cols-8 gap-3 items-center'>
                 <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 col-span-6 mb-3 md:col-start-4 col-start-2 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>RISK EDGE</h1>
                 {/* <h1 data-value="PRIVATE LIMITED" onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 col-span-6 mb-3 md:col-start-3 col-start-2 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>PRIVATE LIMITED</h1> */}
                 <h3 className='md:col-span-4 col-span-7 col-start-2 md:col-start-3 text-xs md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
