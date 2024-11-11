@@ -8,4 +8,7 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 2000, // Sets limit to 1000 kB
   },
+  server:{
+    https:true,
+  },
 })
