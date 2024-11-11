@@ -6,11 +6,10 @@ import Home from './Pages/Home.jsx'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { useEffect, useRef, useState } from 'react'
   import { debounce } from 'lodash';
-import Footer from './Components/Footer.jsx'
+
 import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
-import Services from './Pages/Services.jsx'
-import solutions from './utils/Solutions.js'
+
 import MachineLearning from './Pages/MachineLearning.jsx'
 import MarketEdge from './Pages/MarketEdge.jsx'
 import PlanEdge from './Pages/PlanEdge.jsx'
