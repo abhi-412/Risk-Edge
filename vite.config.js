@@ -1,17 +1,20 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import fs from 'fs';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  assetsInclude: ['**/*.glb'],
-  build: {
-    chunkSizeWarningLimit: 2000, // Sets limit to 1000 kB
-  },
+  assetsInclude: ['*/.glb'],
   server: {
     https: {
-      key: '/path/to/some_folder/ssl/SSLforMyHosts-key.pem',
-      cert: '/path/to/some_folder/ssl/SSLforMyHosts-certificate.pem',
-    }
+      key: fs.readFileSync('/home/nitpicks/.acme.sh/riskedgesolutions.com/riskedgesolutions.com.key'),
+      cert: fs.readFileSync('/home/nitpicks/.acme.sh/riskedgesolutions.com/fullchain.cer')
+    },
+    host: '0.0.0.0',
+    port: 3000,
   },
-})
+  build: {
+    chunkSizeWarningLimit: 2000, // Sets limit to 2000 kB
+  },
+});
