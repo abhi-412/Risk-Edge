@@ -11,6 +11,11 @@ import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
 import Services from './Pages/Services.jsx'
 import solutions from './utils/Solutions.js'
+import MachineLearning from './Pages/MachineLearning.jsx'
+import MarketEdge from './Pages/MarketEdge.jsx'
+import PlanEdge from './Pages/PlanEdge.jsx'
+import VarEdge from './Pages/VarEdge.jsx'
+import CreditRisk from './Pages/CreditRisk.jsx'
 
 
 function App() {
@@ -56,9 +61,12 @@ function App() {
             <Route path='/' element={<Home pageOneRef={pageOneRef} pageTwoRef={pageTwoRef} pageThreeRef={pageThreeRef} />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
-            {solutions.map((sol)=>{
-                return <Route key={sol.id} path={`/${sol.slug}`} element={<Services solution={sol} />} />
-            })}
+            <Route path='/predictive-analytics-apps' element={<MachineLearning />} />
+            <Route path='/market-edge' element={<MarketEdge />} />
+            <Route path='/plan-edge' element={<PlanEdge />} />
+            <Route path='/var-edge' element={<VarEdge />} />
+            <Route path='/credit-risk' element={<CreditRisk />} />
+            
         </Routes>
       </Router>
   )

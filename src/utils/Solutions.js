@@ -256,9 +256,6 @@ let solutions=[
           }
         ]
       }
-      
-      
-
 ]
 
 

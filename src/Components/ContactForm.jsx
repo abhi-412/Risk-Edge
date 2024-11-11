@@ -17,7 +17,7 @@ const ContactForm = () => {
   const formik = useFormik({
     initialValues: {
       salutation: '',
-      company: '',
+      company: '', 
       firstname: '',
       lastname: '',
       phone: '',
