@@ -12,6 +12,7 @@ import marketEdge3 from "../assets/images/MarketEdge3.png";
 import planEdgeMain from "../assets/images/Plan-Edge-main.png";
 import creditDefault from "../assets/images/credit-default.png"
 import ML from "../assets/images/ML.jpg"
+import CR1 from "../assets/images/CR1.png"
 
 export default {
     prod1Img,
@@ -27,5 +28,6 @@ export default {
     marketEdge3,
     planEdgeMain,
     creditDefault,
-    ML
+    ML,
+    CR1
 };

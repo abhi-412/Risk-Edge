@@ -1,6 +1,7 @@
 import React from 'react';
 import Breadcrumb from '../Components/BreadCrumb';
 import Footer from '../Components/Footer';
+import images from '../utils/images';
 
 const CreditRisk = () => {
   return (
@@ -45,7 +46,7 @@ const CreditRisk = () => {
                 those exposures today.
               </p>
               <img
-                src='http://riskedge.local/wp-content/uploads/2020/09/PFE-Diagram-300x241-1.png'
+                src={images.CR1}
                 className='w-full md:w-2/3 object-contain'
                 alt='PFE Diagram'
               />
