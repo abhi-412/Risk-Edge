@@ -65,7 +65,7 @@ const About = () => {
                             <img
                             fetchPriority="high"
                             decoding="async"
-                            src="http://riskedge.local/wp-content/uploads/2020/10/pexels-fauxels-3184418.jpg"
+                            src={images.pexels}
                             alt=""
                             className="my-4 md:w-2/3 w-full"
                             />

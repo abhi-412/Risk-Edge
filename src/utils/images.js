@@ -13,6 +13,7 @@ import planEdgeMain from "../assets/images/Plan-Edge-main.png";
 import creditDefault from "../assets/images/credit-default.png"
 import ML from "../assets/images/ML.jpg"
 import CR1 from "../assets/images/CR1.png"
+import pexels from "../assets/images/pexels.jpg"
 
 export default {
     prod1Img,
@@ -29,5 +30,6 @@ export default {
     planEdgeMain,
     creditDefault,
     ML,
-    CR1
+    CR1,
+    pexels
 };
