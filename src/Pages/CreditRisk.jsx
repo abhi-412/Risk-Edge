@@ -32,7 +32,7 @@ const CreditRisk = () => {
             </p>
           </div>
 
-          <div className='my-4 flex flex-col gap-8'>
+          <div className='my-4 flex flex-col gap-10'>
             <div className='flex flex-col gap-3'>
               <h4 className='h5'>Potential Future Exposure (PFE)</h4>
               <p className='body-2'>Global Standard in Credit Risk Management</p>

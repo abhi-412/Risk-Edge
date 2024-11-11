@@ -43,7 +43,7 @@ const Navbar = () => {
       
       className="flex justify-between w-full bg-black border-gray-200 items-center  px-6 py-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo.footerLogo} className="w-32" alt="Logo" />
+          <img src={logo.RiskEdgeSVG} className="w-32" alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span> */}
         </Link>
         <div className="flex md:order-2 md:hidden">

@@ -32,7 +32,7 @@ const MarketEdge = () => {
             />
           </div>
 
-          <div className='my-4 flex flex-col'>
+          <div className='my-4 flex flex-col gap-10'>
             <div className='flex flex-col gap-3'>
               <h4 className='h5'>Real-time Data</h4>
               <p className='body-2'>

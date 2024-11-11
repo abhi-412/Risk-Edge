@@ -39,7 +39,7 @@ const VarEdge = () => {
             </p>
           </div>
 
-          <div className='my-4 flex flex-col gap-8'>
+          <div className='my-4 flex flex-col gap-10'>
             <div className='flex flex-col gap-3'>
               <h4 className='h5'>Why VaR Edge?</h4>
               <p className='body-2'>Here’s why it is better than any other software you’ve come across!</p>

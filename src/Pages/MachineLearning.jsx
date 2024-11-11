@@ -33,7 +33,7 @@ const MachineLearning = () => {
             <p className='body-2 italic'>Apps to solve specific Problems.</p>
           </div>
 
-          <div className='my-4 flex flex-col'>
+          <div className='my-4 flex flex-col gap-10'>
             <div className='flex flex-col gap-3'>
               <h4 className='h5'>Machine Learning</h4>
               <p className='body-2'>

@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="w-full lg:w-1/4 md:w-1/3 md:px-12 px-4 mb-8 md:mb-0">
         <div className="text-left">
           <img
-            src={logo.footerLogo}
+            src={logo.RiskEdgeSVG}
             alt="Risk Edge Logo"
             width="160"
             className="mb-4"

@@ -36,7 +36,7 @@ const PlanEdge = () => {
             </p>
           </div>
 
-          <div className='my-4 flex flex-col gap-6'>
+          <div className='my-4 flex flex-col gap-10'>
             <div className='flex flex-col gap-3'>
               <h4 className='h5'>Automate Budgeting and Planning</h4>
               <p className='body-2'>
