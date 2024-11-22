@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect,useState, useRef } from 'react'
 import Hero from '../Components/Hero'
 import icons from '../utils/icons'
 import Footer from '../Components/Footer'
@@ -7,9 +7,88 @@ import ServiceCard from '../Components/ServiceCard'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/all'
+import { useLocation } from 'react-router-dom'
 
 
-const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
+
+const Particle = () => {
+    const [x, setX] = useState(Math.random() * window.innerWidth );
+    const [y, setY] = useState(Math.random() * window.innerHeight);
+    const [vx, setVx] = useState(Math.random() * 2 - 1);
+    const [vy, setVy] = useState(Math.random() * 2 - 1);
+  
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setX(x + vx);
+        setY(y + vy);
+        if (x + vx > window.innerWidth -10 || x + vx < 0) setVx(-vx);
+        if (y + vy > window.innerHeight || y + vy < 0) setVy(-vy);
+      }, 16); // 60fps
+      return () => clearInterval(intervalId);
+    }, [x, y, vx, vy]);
+  
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          top: y,
+          left: x-20,
+          width: '2px',
+          height: '2px',
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+          borderRadius: '50%',
+        }}
+      />
+    );
+  };
+
+
+  const Cursor = () => {
+    const [particles, setParticles] = useState([]);
+  
+    const handleMouseMove = (e) => {
+      const cursor = document.getElementById('cursor');
+      cursor.style.top = `${e.clientY - 5}px`;
+      cursor.style.left = `${e.clientX - 5}px`;
+    };
+  
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setParticles((prevParticles) => [...prevParticles, <Particle key={Math.random()} />]);
+        if (prevParticles.length > 100) setParticles((prevParticles) => prevParticles.slice(1));
+      }, 100); // 10 particles per second
+      return () => clearInterval(intervalId);
+    }, []);
+  
+    return (
+      <div>
+        <div id="cursor" className="w-12 h-10 z-1 flex items-center justify-center fixed top-0 left-0 rounded-full" />
+        {particles}
+      </div>
+    );
+  };
+
+
+const Home = ({setNavbarColor}) => {
+   
+  const location = useLocation();
+
+    
+    useEffect(() => {
+        const handleScroll = () => {
+          const section2Top = document.getElementById('section2').offsetTop;
+          const scrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
+    
+          scrollPosition >= section2Top && location.pathname === "/" ? setNavbarColor("bg-black") : setNavbarColor("bg-transparent");
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Trigger on mount
+    
+        return () => window.removeEventListener('scroll', handleScroll);
+        
+      }, [location.pathname, setNavbarColor]);
+      
 
     const handleMouseMove = (e) => {
         let cards = document.querySelectorAll('.card');
@@ -23,12 +102,31 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
         });
     };
 
-    // const pages = window.innerWidth >= 1024 ? 3.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 5.2 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3.8 : 5.2
-    // const page1offset = window.innerWidth >= 1024 ? 1.99 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.1 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2 : 2.7
-    // const pageOffset2 = window.innerWidth >= 1024 ? 3.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 4.8 : window.innerWidth < 768 && window.innerWidth >= 580 ? 4.2 : window.innerWidth < 580 && window.innerWidth >= 368 ? 3 : 4.8
+
+    useEffect(() => {
+       const cursor = document.getElementById("cursor");
+       const colors = ["#FFC876","#7ADB78","#FF776F","#FFC876","#FFC876","#FFC876"]
+       for(let i=0;i<10000;i++){
+           const bubble = document.createElement("div");
+           bubble.classList.add("bubble");
+           bubble.style.width = "2px";
+           bubble.style.height = "2px";
+           bubble.style.left = `${Math.random() * 100}%`;
+           bubble.style.top = `${Math.random() * 100}%`;
+           bubble.style.backgroundColor = colors[`${Math.random() * colors.length}`];
+           cursor.appendChild(bubble);
+       }
+
+      }, []);
+
     
-    // const factor1 = window.innerWidth >= 1024 ? 2.7 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 2.999 : window.innerWidth < 768 && window.innerWidth >= 580 ? 3.6 : window.innerWidth < 580 && window.innerWidth >= 368 ? 4 : 5.3
-    // const factor2 = window.innerWidth >= 1024 ? 2.3 : window.innerWidth >= 768 && window.innerWidth < 1024 ? 3.4 : window.innerWidth < 768 && window.innerWidth >= 580 ? 2.7 : window.innerWidth < 580 && window.innerWidth >= 368 ? 2 : 5.3
+
+      const handleMouseMove2 = (e) => {
+        const cursor = document.getElementById('cursor');
+        cursor.style.top = `${e.clientY - 5}px`; // adjust the offset as needed
+        cursor.style.left = `${e.clientX - 5}px`; // adjust the offset as needed
+      };
+    
    
     const services = [
         // {id:1,title:"Consulting & Training",
@@ -121,8 +219,8 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
         scrollTrigger:{
             trigger:".box",
             
-            // scroller:"body",
-            // start:"top 50%",
+            scroller:"body",
+            start:"top 50%",
             // scrub:2
         }
     })
@@ -132,11 +230,12 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
   return (
     // <Section className={"relative"}>
     // </Section>
-    <main className='relative w-full h-full'>
+    <main onMouseMove={handleMouseMove} className="main relative">
+  <Cursor />
     {/* <Parallax pages={pages}>
         <ParallaxLayer   offset={0} factor={1} speed={1}> */}
-            <section ref={pageOneRef}  className=' flex w-full h-full flex-col items-center  justify-center'>
-                <div className='relative min-h-screen bg-black w-full'>
+            <section  className=' flex w-full h-full flex-col items-center  justify-center'>
+                <div className=' min-h-screen mainbg w-full bg-black'>
                     <Hero />
                 </div>
             </section>
@@ -145,7 +244,7 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
 
         <ParallaxLayer  className='bg-white' offset={0.9999} speed={1.5} factor={factor1}> */}
            
-           <section   className='text-gray-900   w-full flex flex-col gap-24  py-24'>
+           <section id='section2'  className='text-gray-900   w-full flex flex-col gap-24  py-24'>
                 <div className="max-w-6xl mx-auto flex  flex-col items-center gap-8 p-2 justify-center">
                         <h1 className='h1'>What We Do?</h1>
                         {/* <h2 className='h2 font-semibold'>Webentwicklung aus der Region Zug</h2> */}
@@ -213,10 +312,10 @@ const Home = ({pageOneRef, pageTwoRef, pageThreeRef}) => {
                          Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
                          Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
-            <div className='w-full lg:max-w-6xl h-[590px] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
+            <div className='w-full lg:max-w-6xl h-[fit] md:h-full overflow-x-scroll xl:overflow-clip hide-scrollbar px-4 py-2 relative'> 
             <div className='w-fit box flex items-center justify-center flex-nowrap  xl:flex-wrap gap-6'>
                {
-                services.map((service, index) => {
+                services.map((service) => {
                     return (
                         <ServiceCard key={service.id} {...service} handleMouseMove={handleMouseMove} />
                     )

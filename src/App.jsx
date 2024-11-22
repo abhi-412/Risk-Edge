@@ -18,36 +18,8 @@ import CreditRisk from './Pages/CreditRisk.jsx'
 
 
 function App() {
-
-  const navbarRef = useRef();
-  const pageOneRef = useRef();
-  const pageTwoRef = useRef();
-  const pageThreeRef = useRef();
-  
   const [navbarColor, setNavbarColor] = useState("bg-transparent");
 
-
-
-  useEffect(() => {
-    const handleScroll = debounce(() => {
-      if (pageOneRef.current && pageTwoRef.current && pageThreeRef.current) {
-        const pageOneTop = pageOneRef.current.getBoundingClientRect().top;
-        const pageTwoTop = pageTwoRef.current.getBoundingClientRect().top;
-        const pageThreeTop = pageThreeRef.current.getBoundingClientRect().top;
-  
-        if (pageOneTop >= 0) {
-          setNavbarColor("bg-transparent");
-        } else if (pageTwoTop >= 0) {
-          setNavbarColor("bg-white");
-        } else if (pageThreeTop >= 0) {
-          setNavbarColor("bg-black");
-        }
-      }
-    }, 100); // Debounce delay of 100ms
-  
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pageOneRef, pageTwoRef, pageThreeRef]);
   
   
   
@@ -55,9 +27,9 @@ function App() {
       <Router>
         {/* <Parallax pages={0.1}>
           <ParallaxLayer offset={0} speed={0.5}  > */}
-          <Navbar navbarRef={navbarRef} navbarColor={navbarColor} />
+          <Navbar  navbarColor={navbarColor} />
         <Routes>
-            <Route path='/' element={<Home pageOneRef={pageOneRef} pageTwoRef={pageTwoRef} pageThreeRef={pageThreeRef} />} />
+            <Route path='/' element={<Home setNavbarColor={setNavbarColor} />} />
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/predictive-analytics-apps' element={<MachineLearning />} />

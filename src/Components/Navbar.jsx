@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { IoHomeSharp, IoLogOut } from "react-icons/io5";
@@ -12,9 +12,11 @@ import logo from '../utils/logo';
 
 
 
-const Navbar = () => {
+const Navbar = ({navbarColor}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropdown,setDropDown] = useState(false);
+
+  
 
 
   const [isOpen, setIsOpen] = useState(false);
@@ -38,10 +40,10 @@ const Navbar = () => {
 
 
   return (
-    <nav className="fixed top-0 z-10 flex flex-col gap-3 w-full">
+    <nav className="fixed top-0 z-50 flex flex-col gap-3 w-full">
       <div 
       
-      className="flex justify-between w-full bg-black border-gray-200 items-center  px-6 py-4">
+      className={`flex justify-between w-full ${navbarColor} border-gray-200 items-center  px-6 py-4`}>
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo.RiskEdgeSVG} className="w-32" alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span> */}
