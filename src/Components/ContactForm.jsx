@@ -80,12 +80,12 @@ const ContactForm = () => {
   });
 
   return (
-    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-4 h-full  rounded bg-gray-100">
+    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-4 h-full  rounded bg-gray-100 dark:bg-gray-900">
        {alert.show && <Alert {...alert} />}
       {/* Salutation and Company */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white dark:bg-gray-900">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <select 
                 onChange={formik.handleChange}
                 value={formik.values.salutation}
@@ -93,13 +93,13 @@ const ContactForm = () => {
                 required
                 id="salutation"
                 name='salutation'
-                className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer"
+                className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer"
                 >
                   <option value="">Select</option>
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
                 </select>
-                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
+                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
             </div>
           {formik.touched.salutation && formik.errors.salutation && hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.salutation}</p>
@@ -108,7 +108,7 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='company'
@@ -117,8 +117,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="company"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="company" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company</label>
+                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="company" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company</label>
             </div>
           {formik.touched.company && formik.errors.company && hasSubmitted &&  (
             <p className="text-red-500 text-xs mt-1">{formik.errors.company}</p>
@@ -129,7 +129,7 @@ const ContactForm = () => {
       {/* First Name and Last Name */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='firstname'
@@ -138,8 +138,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="firstname"
-                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="firstname" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">First Name</label>
+                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="firstname" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">First Name</label>
             </div>
           {formik.touched.firstname && formik.errors.firstname &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.firstname}</p>
@@ -148,7 +148,7 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='lastname'
@@ -157,8 +157,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="lastname"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="lastname" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Last Name</label>
+                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="lastname" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Last Name</label>
             </div>
           {formik.touched.lastname && formik.errors.lastname &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.lastname}</p>
@@ -169,7 +169,7 @@ const ContactForm = () => {
       {/* Phone and Email */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='phone'
@@ -178,8 +178,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="phone"
-                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="phone" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Phone</label>
+                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="phone" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Phone</label>
             </div>
           {formik.touched.phone && formik.errors.phone &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.phone}</p>
@@ -188,7 +188,7 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='email'
@@ -197,8 +197,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="email"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="email" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Email</label>
+                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="email" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Email</label>
             </div>
           {formik.touched.email && formik.errors.email &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
@@ -208,7 +208,7 @@ const ContactForm = () => {
 
       {/* Project Budget */}
       <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md dark:bg-gray-950">
                 <input
                     type="text"
                     name='budget'
@@ -217,8 +217,8 @@ const ContactForm = () => {
                     onBlur={formik.handleBlur}
                     required
                     id="budget"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="budget" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Project Budget</label>
+                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
+                <label htmlFor="budget" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Project Budget</label>
             </div>
           {formik.touched.budget && formik.errors.budget && hasSubmitted &&  (
             <p className="text-red-500 text-xs mt-1">{formik.errors.budget}</p>
@@ -226,17 +226,17 @@ const ContactForm = () => {
         </div>
 
       {/* Message */}
-      <div className="relative shadow-md bg-white w-full">
+      <div className="relative shadow-md dark:bg-gray-950 w-full">
         <textarea
           name="message"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.message}
           rows="4"
-          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" "
+          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" "
 
         />
-        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] bg-white  px-2 peer-focus:px-2 peer-focus:text-black font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
 
           Message *
         </label>
@@ -247,7 +247,7 @@ const ContactForm = () => {
 
       {/* Submit Button */}
       <div>
-        <button type="submit" disabled={submitting} className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        <button type="submit" disabled={submitting} className="w-full bg-blue-500 dark:bg-blue-800 text-white p-2 rounded hover:bg-blue-600 dark:hover:bg-blue-900">
           {submitting ? "Sending..." : "Send"}
         </button>
       </div>

@@ -81,7 +81,7 @@ const Home = ({setNavbarColor}) => {
           const section2Top = document.getElementById('section2').offsetTop;
           const scrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
     
-          scrollPosition >= section2Top && location.pathname === "/" ? setNavbarColor("bg-white dark:bg-black dark:text-white text-black shadow-xl"): setNavbarColor("");
+          scrollPosition >= section2Top && location.pathname === "/" ? setNavbarColor("bg-white dark:bg-black dark:text-white text-black shadow-xl"): setNavbarColor("bg-transparent text-white");
         }
     
         window.addEventListener('scroll', handleScroll);

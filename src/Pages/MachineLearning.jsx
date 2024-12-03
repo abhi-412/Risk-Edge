@@ -4,7 +4,7 @@ import Breadcrumb from '../Components/BreadCrumb';
 
 const MachineLearning = () => {
   return (
-    <div className='mt-20 text-gray-800'>
+    <div className='py-20 text-gray-800 dark:text-gray-200 dark:bg-gray-900'>
       <div className='py-8 max-w-7xl mx-auto flex flex-col gap-4 px-3'>
         <div className='flex flex-col gap-6 text-blue-600 max-w-5xl'>
           <h1 className='h3'>Predictive Analytics Apps</h1>

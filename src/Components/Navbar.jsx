@@ -74,7 +74,7 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
     <nav className="fixed top-0 z-50 flex flex-col  gap-3 w-full">
       <div 
       
-      className={`flex justify-between w-full ${navbarColor} border-gray-200 items-center  md:px-6 md:py-2`}>
+      className={`flex justify-between w-full ${navbarColor} border-gray-200  items-center  md:px-6 md:py-2`}>
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={logo.RiskEdgeSVG} className="w-32" alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap "></span> */}
