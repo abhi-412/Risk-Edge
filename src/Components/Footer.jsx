@@ -6,7 +6,7 @@ import { IoIosMail } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div className=" bg-[#eff1fe] w-full  py-8 text-black">
+    <div className=" bg-[#eff1fe] dark:bg-gray-950 dark:text-gray-100 w-full  py-8 text-black">
   <div className="left-0 w-full ">
     <div className="flex flex-wrap justify-center items-center">
       {/* Logo and Description */}

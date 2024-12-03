@@ -1,7 +1,6 @@
 import React from 'react';
 import images from '../utils/images';
 import Breadcrumb from '../Components/BreadCrumb';
-import Footer from '../Components/Footer';
 
 const MarketEdge = () => {
   return (
@@ -86,7 +85,6 @@ const MarketEdge = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

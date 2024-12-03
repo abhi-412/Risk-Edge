@@ -1,7 +1,6 @@
 import React from 'react';
 import images from '../utils/images';
 import Breadcrumb from '../Components/BreadCrumb';
-import Footer from '../Components/Footer';
 
 const PlanEdge = () => {
   return (
@@ -68,8 +67,6 @@ const PlanEdge = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

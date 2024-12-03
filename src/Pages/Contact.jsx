@@ -2,7 +2,6 @@ import React from 'react'
 import { BsTwitterX } from 'react-icons/bs'
 import { FaLinkedin } from 'react-icons/fa6'
 import ContactForm from '../Components/ContactForm'
-import Footer from '../Components/Footer'
 import Breadcrumb from '../Components/BreadCrumb'
 
 const Contact = () => {
@@ -13,18 +12,18 @@ const Contact = () => {
 
   return (
     <>
-    <div className='bg-white flex flex-col gap-6 justify-center  items-center mt-24 pb-12 text-black '>
+    <div className='bg-white dark:bg-gray-950 dark:text-white flex flex-col gap-6 justify-center  items-center pt-24 pb-12 text-black '>
         <div className='w-full h-36  lg:px-12 px-3 flex justify-center items-start p-5 flex-col'>
         <h1 className='h2 mb-8'>Contact Us</h1>
             <Breadcrumb bg={"black"} items={[{ label: 'Home', href: '/', isCurrent: false }, { label: 'Contact', href: '/contact', isCurrent: true }]} />
         </div>
 
       <div className='grid grid-cols-2 w-full gap-10 lg:p-12 p-5'>
-      <div className='md:col-span-1 col-span-2 bg-gray-100 py-5'>
+      <div className='md:col-span-1 col-span-2 bg-gray-100 dark:bg-gray-900 py-5'>
         <h1 className='h4 text-center'> Send us a Message</h1>
                <ContactForm />
         </div>
-        <div className='md:col-span-1 col-span-2 py-5  flex flex-col bg-gray-100 px-4 items-center justify-start gap-6'>
+        <div className='md:col-span-1 col-span-2 py-5  flex flex-col bg-gray-100 dark:bg-gray-900 px-4 items-center justify-start gap-6'>
             <h4 className='h4'>Reach out to Us</h4>
 
             <div className='flex flex-col gap-3 items-start'>
@@ -78,8 +77,6 @@ const Contact = () => {
 
     </div>
 
-    <Footer />
-    
     </>
   )
 }

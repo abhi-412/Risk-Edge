@@ -1,19 +1,38 @@
 import React, { useEffect, useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF, useAnimations, useScroll } from '@react-three/drei'
 import RobotModel from "./assets/robot.glb"
 import { useFrame } from '@react-three/fiber'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
-const Robot = (props)=> {
+const Robot = ({play, ...props})=> {
   const robot = useRef()
   const { nodes, materials, animations } = useGLTF(RobotModel)
-  const { actions } = useAnimations(animations, robot)
+  const { actions,clips } = useAnimations(animations, robot)
+  const scroll = useScroll();
 
 useEffect(()=>{
     const animation = actions["Experiment"];
+    if(play){
+      animation.play();
+    }else{
+      animation.stop();
+    }
+},[actions, play])
+
+// useFrame(()=>(
+//   actions["Experiment"].time = (actions["Experiment"].getClip().duration * scroll.offset)/3)
+// )
     
-    
-    animation.play();
-},[actions])
+useGSAP(()=>{
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(robot.current,{
+    scale: 1.5,
+    ease:"back.out",
+  })
+})
     
 
 
@@ -25,83 +44,7 @@ useEffect(()=>{
             <group name="Object_2">
               <group name="RootNode">
                 <group name="holo" scale={1.877}>
-                  <group name="ground" position={[0, 0.39, 0]}>
-                    <group name="pDisc1" position={[0, -0.388, 0]} scale={11.114}>
-                      <mesh
-                        name="pDisc1_holo1_0"
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.pDisc1_holo1_0.geometry}
-                        material={materials.holo1}
-                      />
-                    </group>
-                    <group name="pPipe4" position={[0, -0.429, 0]} rotation={[0, -0.311, 0]}>
-                      <mesh
-                        name="pPipe4_holo1_0"
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.pPipe4_holo1_0.geometry}
-                        material={materials.holo1}
-                      />
-                      <group name="MASH1_ReproMesh2" position={[0, 0.429, 0]}>
-                        <mesh
-                          name="MASH1_ReproMesh2_holo1_0"
-                          castShadow
-                          receiveShadow
-                          geometry={nodes.MASH1_ReproMesh2_holo1_0.geometry}
-                          material={materials.holo1}
-                        />
-                      </group>
-                    </group>
-                    <group name="pPipe2" position={[0, -0.576, 0]} rotation={[0, 0.311, 0]}>
-                      <mesh
-                        name="pPipe2_holo1_0"
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.pPipe2_holo1_0.geometry}
-                        material={materials.holo1}
-                      />
-                      <group
-                        name="MASH1_ReproMesh3"
-                        position={[0, 0.576, 0]}
-                        scale={[0.819, 0.804, 0.819]}>
-                        <mesh
-                          name="MASH1_ReproMesh3_holo1_0"
-                          castShadow
-                          receiveShadow
-                          geometry={nodes.MASH1_ReproMesh3_holo1_0.geometry}
-                          material={materials.holo1}
-                        />
-                      </group>
-                      <group name="pPipe3" rotation={[0, 0.684, 0]} scale={0.856}>
-                        <mesh
-                          name="pPipe3_holo1_0"
-                          castShadow
-                          receiveShadow
-                          geometry={nodes.pPipe3_holo1_0.geometry}
-                          material={materials.holo1}
-                        />
-                      </group>
-                    </group>
-                    <group name="pPipe1" rotation={[0, -0.311, 0]}>
-                      <mesh
-                        name="pPipe1_holo1_0"
-                        castShadow
-                        receiveShadow
-                        geometry={nodes.pPipe1_holo1_0.geometry}
-                        material={materials.holo1}
-                      />
-                      <group name="MASH1_ReproMesh1" scale={[1.033, 1, 1.033]}>
-                        <mesh
-                          name="MASH1_ReproMesh1_holo1_0"
-                          castShadow
-                          receiveShadow
-                          geometry={nodes.MASH1_ReproMesh1_holo1_0.geometry}
-                          material={materials.holo1}
-                        />
-                      </group>
-                    </group>
-                  </group>
+
                   <group
                     name="group36"
                     position={[0.33, 0, -0.099]}

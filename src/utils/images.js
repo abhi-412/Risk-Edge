@@ -14,6 +14,7 @@ import creditDefault from "../assets/images/credit-default.png"
 import ML from "../assets/images/ML.jpg"
 import CR1 from "../assets/images/CR1.png"
 import pexels from "../assets/images/pexels.jpg"
+import smart from "../assets/images/smart.jpg"
 
 export default {
     prod1Img,
@@ -31,5 +32,6 @@ export default {
     creditDefault,
     ML,
     CR1,
-    pexels
+    pexels,
+    smart
 };

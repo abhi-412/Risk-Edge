@@ -110,24 +110,20 @@ const Hero = () => {
   }, []);
 
   return (
-        <div className='grid grid-cols-2  min-h-[100vh] mt-24 md:mt-10 md:h-screen h-full gap-4 items-center justify-center max-w-6xl mx-auto'>
-            <div className='md:col-span-1 min-h-[30vh]  col-span-2 mx-auto flex flex-col gap-3 items-center justify-center'>
-                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 bg-gradient-to-b from-[#e44141] to-[#4f2af3] bg-clip-text text-transparent mb-0 xl:text-7xl lg:text-6xl md:text-5xl text-2xl text-start font-semibold text-white'>RISK EDGE</h1>
-                <h3 className='px-6 text-center text-xs md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
-                <button id='mainBtn' onClick={() => {navigate('/about')}} className='btn col-span-3 text-center text-nowrap bg-gray-400 hover:bg-transparent hover:border-4 hover:border-gray-950 hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2 mt-1'>Learn More</button>
+        <div className='grid grid-cols-2  min-h-[100vh] mt-24 md:mt-10 md:h-screen h-full gap-4 items-center justify-center '>
+            <div className='md:col-span-1 min-h-[30vh] max-w-2xl text-white col-span-2 mx-auto flex flex-col gap-3 items-center justify-center'>
+                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 bg-gradient-to-b from-[#e44141] to-[#4f2af3] bg-clip-text text-transparent mb-0 xl:text-8xl lg:text-6xl sm:text-5xl text-5xl text-start font-bold'>RISK EDGE</h1>
+                <h3 className='px-6 text-center text-base sm:text-xl md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
+                <button id='mainBtn' onClick={() => {navigate('/about')}} className='btn col-span-3 text-center text-nowrap bg-gray-400 hover:bg-transparent hover:border-4 hover:border-cyan-950 hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2 mt-1'>Learn More</button>
             </div>
-
-            <Suspense className='md:col-span-1 col-span-2 relative w-full flex items-center justify-center' fallback={null}>
+            {/* <Suspense className='md:col-span-1 col-span-2 relative w-full flex items-center justify-center' fallback={null}>
               <div className='rounded-full absolute md:top-20 top-48 z-10 w-[400px] h-[500px]  md:right-64 right-0 opacity-40  blur-[160px] bg-gradient-to-b from-green-600 to-purple-700 bg-opacity-70'></div>
               <Canvas gl={{antialias: true}} dpr={[1, 2]} className='md:col-span-1 col-span-2 flex items-center bg-transparent w-full h-full'>
-              {/* <spotLight position={[0, 1, 0]} intensity={3} color={"#A020F0"} /> */}
               <ambientLight intensity={3} />
-              {/* <OrbitControls /> */}
-                <Robot position={[0,-1,0]} scale={[1.4,1.4,1.4]}/>
+                <Robot position={[0,-1,0.4]} scale={[1.6,1.6,1.6]}/>
               </Canvas>
-              {/* <div id='bubbles'></div> */}
-              <div className='absolute top-0  w-[60%] h-[80px] bg-gradient-to-r from-[#e44141] to-[#4f2af3] my-0 mx-auto left-0 rounded-full translate-y-1/2 blur-[160px]'></div>
-            </Suspense>
+            </Suspense> */}
+           
         </div>
   )
 }

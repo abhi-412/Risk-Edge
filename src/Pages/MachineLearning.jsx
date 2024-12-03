@@ -1,7 +1,6 @@
 import React from 'react';
 import images from '../utils/images';
 import Breadcrumb from '../Components/BreadCrumb';
-import Footer from '../Components/Footer';
 
 const MachineLearning = () => {
   return (
@@ -142,7 +141,6 @@ const MachineLearning = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

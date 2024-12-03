@@ -1,6 +1,5 @@
 import React from 'react';
 import Breadcrumb from '../Components/BreadCrumb';
-import Footer from '../Components/Footer';
 import images from '../utils/images';
 
 const CreditRisk = () => {
@@ -100,7 +99,6 @@ const CreditRisk = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

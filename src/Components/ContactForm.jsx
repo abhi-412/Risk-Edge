@@ -85,7 +85,7 @@ const ContactForm = () => {
       {/* Salutation and Company */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md bg-white">
+        <div className="relative shadow-md bg-white dark:bg-gray-900">
                 <select 
                 onChange={formik.handleChange}
                 value={formik.values.salutation}
