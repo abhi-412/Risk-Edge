@@ -331,7 +331,7 @@ const Home = ({setNavbarColor}) => {
                                     </Canvas>
                                 </Suspense>
                             </div>
-                            <div className="relative z-1 max-w-[24rem] ml-auto xl:pr-28 sm:pr-8 pr-0">
+                            <div className={`relative ${play ? "-z-1" : "z-1"} max-w-[24rem] ml-auto xl:pr-28 sm:pr-8 pr-0`}>
                                 <h4 className="h4 mb-4 font-bold">Our Smart AI</h4>
                                 <p className="body-2 mb-[2rem] pb-4 font-semibold border-black dark:border-white border-b">
                                     Unlock the potential of AI-powered applications

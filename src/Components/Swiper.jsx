@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Keyboard, Pagination } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/scss/effect-coverflow";
 import SwiperCore from "swiper";
 import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 import images from '../utils/images';

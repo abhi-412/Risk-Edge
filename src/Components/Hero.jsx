@@ -110,7 +110,7 @@ const Hero = () => {
   }, []);
 
   return (
-        <div className='flex  min-h-[100vh] md:h-screen h-full gap-4 items-center pb-32 justify-center '>
+        <div className='flex  min-h-[100vh] md:h-screen h-full gap-4 items-center lg:pr-32 justify-center '>
             <div className='min-h-[30vh] max-w-2xl text-white col-span-2 mx-auto flex flex-col gap-5 items-center justify-center'>
                 <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 bg-gradient-to-b from-[#e44141] to-[#4f2af3] bg-clip-text text-transparent mb-0 xl:text-8xl lg:text-7xl sm:text-6xl text-5xl text-start font-bold'>RISK EDGE</h1>
                 <h3 className='px-6 text-center text-base sm:text-xl md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
