@@ -16,6 +16,8 @@ import PlanEdge from './Pages/PlanEdge.jsx'
 import VarEdge from './Pages/VarEdge.jsx'
 import CreditRisk from './Pages/CreditRisk.jsx'
 import Footer from './Components/Footer.jsx'
+import Ebooks from './Pages/Ebooks.jsx'
+import ScrollToTop from './Components/ScrollToTop.jsx'
 
 
 function App() {
@@ -26,8 +28,7 @@ function App() {
   
   return (
       <Router>
-        {/* <Parallax pages={0.1}>
-          <ParallaxLayer offset={0} speed={0.5}  > */}
+        <ScrollToTop />
           <Navbar  navbarColor={navbarColor} setNavbarColor={setNavbarColor} />
         <Routes>
             <Route path='/' element={<Home setNavbarColor={setNavbarColor} location={location} />} />
@@ -38,6 +39,7 @@ function App() {
             <Route path='/plan-edge' element={<PlanEdge />} />
             <Route path='/var-edge' element={<VarEdge />} />
             <Route path='/credit-risk' element={<CreditRisk />} />
+            <Route path='/resources/:slug' element={<Ebooks />} />
         </Routes>
         <Footer />
       </Router>

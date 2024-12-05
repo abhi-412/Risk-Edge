@@ -15,6 +15,7 @@ import ML from "../assets/images/ML.jpg"
 import CR1 from "../assets/images/CR1.png"
 import pexels from "../assets/images/pexels.jpg"
 import smart from "../assets/images/smart.jpg"
+import AIUseCasesEbook from "../assets/images/E-Book-AI-Use-Cases.png"
 
 export default {
     prod1Img,
@@ -33,5 +34,6 @@ export default {
     ML,
     CR1,
     pexels,
-    smart
+    smart,
+    AIUseCasesEbook
 };

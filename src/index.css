@@ -82,12 +82,26 @@ body,html,#root {
     height: 100%;
   }
 
+.swiper-pagination-bullet, .swiper-pagination-bullet-active-next, .swiper-pagination-bullet-active-prev{
+  @apply bg-black dark:bg-white
+}
+
+
   #secA{
-    background-image: url("assets/robot-hand.jpg");
+    background-image: url("assets/big-home.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: black;
-    
+    background-position: right;
+    border-radius: 1rem;
+  }
+
+  @media screen and (max-width: 640px) {
+    #secA{
+      background-image: url("assets/home-small.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: right;
+    }
   }
 
 

@@ -110,11 +110,11 @@ const Hero = () => {
   }, []);
 
   return (
-        <div className='grid grid-cols-2  min-h-[100vh] mt-24 md:mt-10 md:h-screen h-full gap-4 items-center justify-center '>
-            <div className='md:col-span-1 min-h-[30vh] max-w-2xl text-white col-span-2 mx-auto flex flex-col gap-3 items-center justify-center'>
-                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 bg-gradient-to-b from-[#e44141] to-[#4f2af3] bg-clip-text text-transparent mb-0 xl:text-8xl lg:text-6xl sm:text-5xl text-5xl text-start font-bold'>RISK EDGE</h1>
+        <div className='flex  min-h-[100vh] md:h-screen h-full gap-4 items-center pb-32 justify-center '>
+            <div className='min-h-[30vh] max-w-2xl text-white col-span-2 mx-auto flex flex-col gap-5 items-center justify-center'>
+                <h1 data-value="RISK EDGE"  onMouseOver={(e)=>{mouseOverFunc(e)}} className='myH1 bg-gradient-to-b from-[#e44141] to-[#4f2af3] bg-clip-text text-transparent mb-0 xl:text-8xl lg:text-7xl sm:text-6xl text-5xl text-start font-bold'>RISK EDGE</h1>
                 <h3 className='px-6 text-center text-base sm:text-xl md:text-2xl'>Risk Edge is a leading Solution provider for Machine Learning & Risk Analytics, used by medium and large Energy & Commodity Trading Players</h3>
-                <button id='mainBtn' onClick={() => {navigate('/about')}} className='btn col-span-3 text-center text-nowrap bg-gray-400 hover:bg-transparent hover:border-4 hover:border-cyan-950 hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2 mt-1'>Learn More</button>
+                <button id='mainBtn' onClick={() => {navigate('/about')}} className='btn col-span-3 text-center text-nowrap bg-gray-400 hover:bg-transparent hover:border-4 hover:border-white hover:scale-110 transition transform delay-10 hover:text-gray-200 md:text-lg text-sm px-8 py-2 mt-1'>Learn More</button>
             </div>
             {/* <Suspense className='md:col-span-1 col-span-2 relative w-full flex items-center justify-center' fallback={null}>
               <div className='rounded-full absolute md:top-20 top-48 z-10 w-[400px] h-[500px]  md:right-64 right-0 opacity-40  blur-[160px] bg-gradient-to-b from-green-600 to-purple-700 bg-opacity-70'></div>

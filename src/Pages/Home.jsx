@@ -13,6 +13,11 @@ import Marquee from "react-fast-marquee";
 import { Canvas } from '@react-three/fiber'
 import Robot from '../3D/Robot'
 import { OrbitControls } from '@react-three/drei'
+import bgImg from "../assets/ai.png"
+import Swiper from '../Components/Swiper'
+import { Ebooks } from '../utils/Ebooks'
+import EbookCard from '../Components/EbookCard'
+
 
 gsap.registerPlugin(ScrollTrigger) 
 
@@ -67,6 +72,7 @@ const Particle = () => {
       </div>
     );
   };
+  
 
 
 const Home = ({setNavbarColor}) => {
@@ -81,7 +87,7 @@ const Home = ({setNavbarColor}) => {
           const section2Top = document.getElementById('section2').offsetTop;
           const scrollPosition = window.scrollY + window.innerHeight / 2; // Middle of the viewport
     
-          scrollPosition >= section2Top && location.pathname === "/" ? setNavbarColor("bg-white dark:bg-black dark:text-white text-black shadow-xl"): setNavbarColor("bg-transparent text-white");
+          scrollPosition >= section2Top && location.pathname === "/" ? setNavbarColor("bg-white dark:bg-black dark:text-white text-black shadow-xl transition duration-300"): setNavbarColor("bg-transparent text-white");
         }
     
         window.addEventListener('scroll', handleScroll);
@@ -225,15 +231,18 @@ const Home = ({setNavbarColor}) => {
   return (
     // <Section className={"relative"}>
     // </Section>
-    <main onMouseMove={handleMouseMove2} className="main dark:bg-black">
+    <main onMouseMove={handleMouseMove2} className="main dark:bg-black pb-16">
        {/* <div id='cursor' className='w-20 h-16 z-1 flex items-center justify-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 blur-xl fixed top-0 left-0 rounded-full'></div> */}
   {/* <Cursor /> */}
     {/* <Parallax pages={pages}>
         <ParallaxLayer   offset={0} factor={1} speed={1}> */}
-            <section  className='relative flex w-full h-full flex-col items-center bg-black justify-center'>
-                <div id='secA' className='absolute min-h-screen h-full w-full opacity-40'>
+            <section  className='relative flex w-full h-full flex-col items-center bg-gray-950 justify-center'>
+                <div id='secA' className='absolute min-h-screen h-full w-full opacity-60'>
                     
                 </div>
+                {/* <div className='absolute right-0'>
+                <img src={bgImg} alt="" />
+                </div> */}
                 <Hero />
             </section>
 
@@ -284,15 +293,15 @@ const Home = ({setNavbarColor}) => {
         {/* </ParallaxLayer> */}
 
         {/* <ParallaxLayer className='bg-white text-black' offset={page1offset} factor={factor2} speed={0.5}> */}
-            <section id='page3' className={'flex flex-col xl:max-w-6xl lg:max-w-4xl md:max-w-3xl max-w-xl text-black dark:text-gray-200  mx-auto  items-center justify-center gap-12 py-12'}>
-                <div className=' gap-5 flex flex-col items-center justify-center'>
+            <section id='page3' className={'flex flex-col  text-black dark:text-gray-200 bg-gray-100 dark:bg-black  items-center justify-center gap-12 py-12'}>
+                <div className=' gap-5 flex xl:max-w-6xl lg:max-w-4xl md:max-w-3xl max-w-xl mx-auto flex-col items-center justify-center'>
                     <h1 className='h2 text-center'>Software Products</h1>
                     <p className='body-1 text-center'>Risk Edge has several software solutions and platforms for delivering custom-designed and powerful Machine Learning & Risk Analytics solution.
                          Designed by a team of domain experts, we help companies predict variables like Yield, Demand & Supply, Defaults, Breakdowns,
                          Risks and Prices, using Machine Learning Algorithms. Risk Edge also has one of the world’s largest free, online Derivative Pricing Libraries, and a Tweet Mining Engine.</p>
                 </div>
-            <div className='w-full lg:max-w-6xl  h-fit min-h-[30rem] overflow-x-scroll hide-scrollbar px-4 py-2 relative'> 
-            <div className='w-fit box flex items-center justify-center flex-nowrap   gap-6'>
+            {/* <div className='w-full h-fit min-h-[30rem] overflow-x-scroll hide-scrollbar px-4 py-2 relative'> 
+            <div className='w-fit box flex items-center justify-center flex-nowrap p-16  gap-12'>
                {
                 services.map((service) => {
                     return (
@@ -302,13 +311,15 @@ const Home = ({setNavbarColor}) => {
                }
                 
             </div>
-            </div>
+            </div> */}
+
+            <Swiper />
             </section>
         
 
 
 
-                <section className='w-full  flex justify-center my-12 bg-gray-200 dark:bg-gray-950 py-20'>
+                <section className='w-full  flex justify-center  bg-gray-200 dark:bg-gray-950 py-20'>
                     <div className="relative bg-white dark:bg-black dark:text-gray-200 dark:border-gray-600 text-black md:w-3/4 w-11/12 z-1 flex items-center h-[39rem] my-5 p-8 border border-black rounded-3xl overflow-hidden lg:p-8 xl:h-[36rem] xl:w-8/12">
                             <div className="absolute top-20 md:left-0 left-5 w-full h-full pointer-events-none xl:w-6/12">
                                 <Suspense className='relative w-full flex  items-center justify-center' fallback={null}>
@@ -363,14 +374,17 @@ const Home = ({setNavbarColor}) => {
                         </div>    
                 </section>     
 
-                <section className='bg-white dark:bg-black dark:text-gray-200 px-8 py-20   w-full mt-10 pb-10'>
-                    <div className='flex flex-col gap-5 max-w-7xl relative justify-center items-center mx-auto'>
+                <section className='bg-white dark:bg-black dark:text-gray-200 py-20   w-full mb-20 mt-10'>
+                    <div className='flex flex-col gap-5 max-w-7xl mb-12 relative justify-center items-center mx-auto'>
                     <h1 className='h2'>Global Clients</h1>
                     <p className='body-1 mb-4 text-center max-w-5xl'>Risk Edge has worked with some of the most well known companies in the world and helped them solve problems of all sizes. Our clients have 
                         always been satisfied with us and our services and still remain with us to this day. Here are some of our recurring and most valuable clients. 
                     </p>
+                    
+                    </div>
+
                     <Marquee 
-                        className='bg-gray-100 shadow-md dark:bg-gray-900'
+                        className='bg-gray-100 dark:bg-gray-900'
                     >
                     <div className='flex gap-16 p-6 '>
                         {clients.map((client) => (
@@ -379,9 +393,56 @@ const Home = ({setNavbarColor}) => {
                     </div>
 
                     </Marquee>
-                    </div>
                     
                 </section> 
+
+                <section className={'flex flex-col  p-4 text-black dark:text-gray-200 bg-gray-100 dark:bg-gray-950  items-center justify-center gap-12 py-24'}>
+                <div className='flex xl:max-w-6xl gap-12 lg:max-w-4xl md:max-w-3xl max-w-xl mx-auto flex-col items-center justify-center'>
+                    <h1 className='h2 text-center mb-12'>Whitepapers & E-Books</h1>
+                    <div className='flex flex-wrap justify-center gap-12'>
+                        {Ebooks.map((ebook,i)=>{
+                            return i<3 &&  <EbookCard key={i} ebook={ebook} bg={["bg-orange-300 dark:bg-transparent hover:border-orange-500  dark:border-orange-600","bg-green-300 dark:bg-transparent  hover:border-green-500  dark:border-green-600","bg-purple-300 dark:bg-transparent  hover:border-purple-500 dark:border-purple-600"][i]} />
+                        })}
+                    </div>
+
+                    <a className='text-sm md:text-base bg-gray-400 text-gray-900 dark:text-gray-400 dark:hover:border-white dark:bg-transparent dark:border-2 dark:border-gray-300 px-5 py-3 hover:bg-gray-500 hover:text-white dark:hover:text-white transition duration-300' href="">Explore More...</a>
+
+                </div>
+            </section>
+
+                {/* <section>
+                    <div className='w-full h-20 flex'>
+                        <svg  fill="#A020F0" viewBox="-2.4 -2.4 28.80 28.80" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.096"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <title>
+                                </title> 
+                                <g id="idea"> 
+                                    <path d="M16.52,3.66A7,7,0,0,0,5,9.17a9.49,9.49,0,0,0,3,6.24c.51.58,1,1.18,1,1.49v2.38A2.72,2.72,0,0,0,11.72,22h.56A2.72,2.72,0,0,0,15,19.28V16.9c0-.31.53-.91,1-1.49A9.43,9.43,0,0,0,19,9,7,7,0,0,0,16.52,3.66ZM12.28,21h-.56A1.72,1.72,0,0,1,10,19.28V18h4v1.28A1.72,1.72,0,0,1,12.28,21Zm3-6.25c-.73.81-1.3,1.46-1.3,2.15V17H10v-.1c0-.69-.57-1.34-1.3-2.15A8.63,8.63,0,0,1,6,9.15a6,6,0,0,1,5-6.06A6,6,0,0,1,18,9C18,11.7,16.44,13.46,15.3,14.75Z"></path> 
+                                    <path d="M21.5,8h-1a.5.5,0,0,0,0,1h1a.5.5,0,0,0,0-1Z"></path>
+                                    <path d="M4,8.5A.5.5,0,0,0,3.5,8h-1a.5.5,0,0,0,0,1h1A.5.5,0,0,0,4,8.5Z"></path>
+                                    <path d="M3.85,2.15a.49.49,0,0,0-.7.7l1,1a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7Z"></path> 
+                                    <path d="M19.5,4a.47.47,0,0,0,.35-.15l1-1a.49.49,0,0,0-.7-.7l-1,1a.48.48,0,0,0,0,.7A.47.47,0,0,0,19.5,4Z"></path> 
+                                    <path d="M19.85,13.15a.49.49,0,0,0-.7.7l1,1a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7Z"></path> 
+                                    <path d="M4.15,13.15l-1,1a.48.48,0,0,0,0,.7.48.48,0,0,0,.7,0l1-1a.49.49,0,0,0-.7-.7Z"></path> 
+                                    <path d="M13.15,7.15l-3,3a.47.47,0,0,0-.11.54.5.5,0,0,0,.46.31h1.79l-1.14,1.15a.48.48,0,0,0,0,.7.48.48,0,0,0,.7,0l2-2a.47.47,0,0,0,.11-.54A.5.5,0,0,0,13.5,10H11.71l2.14-2.15a.49.49,0,0,0-.7-.7Z"></path> 
+                                    </g> 
+                                </g>
+                        </svg>
+
+                        <svg fill="#A020F0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 484.009 484.009" xmlSpace="preserve" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)" stroke="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="2.904054"></g>
+                            <g id="SVGRepo_iconCarrier"> 
+                                <g> 
+                                    <path d="M457.021,309.299l20.238-159.582L332.072,94.625l-45.974,21.953c-1.419,7.021-3.57,13.854-6.384,20.428l34.803-16.618 l-14.369,154.664l0.804,8.286L194.91,299.333l-8.703,17.165l116.276-17.531l13.405,137.177l15.604-1.537l-13.488-137.969 l1.359-0.213l121.573,15.403l0.295-2.376l18.371,154.282l-126.609-29.223l-164.753,31.387l-1.372-0.26l14.81-140.725l-0.098-0.856 l-0.606-5.272l-20.3-40.075l2.864,25.352l-3.621,0.544L42.475,286.412l0.697-5.781L25.177,138.755l82.171,34.693l-6.859-13.521 c-2.219-2.876-4.229-5.891-6.135-8.958L6.188,113.735L27.373,280.69l-0.399,3.321l-0.295-0.047l-2.409,15.486l0.866,0.118 L7.037,451.605l161.225,30.229l164.438-31.315l145.121,33.49L457.021,309.299z M319.188,280.596l-2.707,0.396l-0.592-5.894 l15.108-162.587l1.785-0.854l127.365,48.326l-17.295,136.264L319.188,280.596z M151.41,462.742L24.329,438.91l16.314-136.918 l119.252,18.478l5.417-0.815l0.606,5.319L151.41,462.742z M183.018,322.799l-2.033-4.008l-0.165-1.478l5.394-0.815L183.018,322.799 z M112.68,146.528l69.248,136.657l68.494-135.194c13.453-15.687,21.634-36.017,21.634-58.268C272.055,40.249,231.802,0,182.326,0 c-49.473,0-89.71,40.249-89.71,89.723c0,21.542,7.637,41.316,20.33,56.805H112.68z M182.332,34.578 c30.402,0,55.147,24.742,55.147,55.145c0,30.401-24.745,55.147-55.147,55.147c-30.402,0-55.145-24.746-55.145-55.147 C127.188,59.32,151.924,34.578,182.332,34.578z">
+                                    </path> 
+                                </g>
+                            </g>
+                        </svg>
+
+                    </div>
+                </section> */}
 
 
         {/* </ParallaxLayer>

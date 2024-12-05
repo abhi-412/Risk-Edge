@@ -47,7 +47,7 @@ const Breadcrumb = ({ items,bg }) => {
   
   return (
     <nav className="flex" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center  space-x-1 md:space-x-2 rtl:space-x-reverse">
+      <ol className="inline-flex items-center text-nowrap overflow-hidden  space-x-1 md:space-x-2 rtl:space-x-reverse">
         {items?.map((item, index) => (
           <React.Fragment key={index}>
             <BreadcrumbItem href={item.href} isCurrent={item.isCurrent}>
@@ -56,7 +56,7 @@ const Breadcrumb = ({ items,bg }) => {
             {index < items?.length - 1 && (
               <div className="flex items-center">
                 <svg
-                  className={`rtl:rotate-180 w-3 h-3 text-${bg} dark:text-white mx-1`}
+                  className={`rtl:rotate-180 w-3 h-3 text-${bg} dark:text-blue-500 mx-1`}
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
