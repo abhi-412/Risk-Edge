@@ -2,7 +2,7 @@ import {React,useState} from 'react'
 // import SkillCard from '../Components/SkillCard'
 import { MdOutlineWorkHistory } from "react-icons/md";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Keyboard, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Keyboard, Pagination } from 'swiper/modules';
 import "swiper/css";
 import "swiper/css/pagination";
 import SwiperCore from "swiper";
@@ -83,7 +83,8 @@ const Services = () => {
             centeredSlides={true}
             loop={true}
             autoplay={{
-              delay: 3000,
+                delay: 3500,
+                disableOnInteraction: false,
             }}
             
             onSwiper={(swiper) => {
@@ -104,7 +105,7 @@ const Services = () => {
                 modifier: 1,
                 // slideShadows: true,
               }}
-            modules={[Pagination,Keyboard,EffectCoverflow]}
+            modules={[Pagination,Keyboard,EffectCoverflow,Autoplay]}
         >
                 {services.map((service,i)=>{
                     return<SwiperSlide key={i} className='flex items-center justify-center'>  <ServiceCard key={service.id} {...service}  /></SwiperSlide>

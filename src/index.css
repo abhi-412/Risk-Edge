@@ -11,8 +11,19 @@
 }
 
 body,html,#root {
-  @apply h-full w-full bg-white dark:bg-black dark:text-white;
+  @apply h-full w-full bg-white  dark:bg-black dark:text-white;
   
+}
+
+canvas{
+  @apply h-[250px] md:h-[500px] min-h-[250px]
+}
+
+.caseStudy .swiper-slide-shadow, .swiper-slide-shadow-cards{
+  display: none;
+}
+.caseStudy .swiper-wrapper{
+  overflow: hidden;
 }
 
 
@@ -86,6 +97,11 @@ body,html,#root {
   @apply bg-black dark:bg-white
 }
 
+.pin-spacer{
+  padding: 0;
+  width: 0;
+  height: 0;
+}
 
   #secA{
     background-image: url("assets/big-home.jpg");
@@ -93,6 +109,7 @@ body,html,#root {
     background-size: cover;
     background-position: right;
     border-radius: 1rem;
+    /* color:#ca0dec */
   }
 
   @media screen and (max-width: 640px) {

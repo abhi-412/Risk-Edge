@@ -85,7 +85,7 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"
             aria-expanded="false"
-            className="md:hidden text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 me-1"
+            className="md:hidden dark:text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 rounded-lg text-sm p-2.5 me-1"
             onClick={toggleSidebar}
           >
             <AiOutlineMenu className="w-5 h-5" />
@@ -188,7 +188,7 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
                     </li>
 
                  
-                  {/* <NavLink className="flex gap-2 items-center" to="/blogs"><FaBlog className='text-lg text-gray-50'/> Blogs</NavLink> */}
+                  {/* <NavLink className="flex gap-2 items-center" to="/blogs"><FaBlog className='text-lg dark:text-gray-50'/> Blogs</NavLink> */}
                   
                 </div>
 
@@ -201,23 +201,23 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
 
 
 
-      <div className={`${sidebarOpen ? 'block' : 'hidden'} md:hidden fixed inset-0 bg-black bg-opacity-50 z-40`} onClick={toggleSidebar}></div>
-      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} overflow-scroll md:hidden fixed inset-y-0 left-0 w-64 bg-black shadow-lg z-50 transform transition-transform duration-300 ease-in-out`}>
+      <div className={`${sidebarOpen ? 'block' : 'hidden'} md:hidden fixed inset-0 bg-black  bg-opacity-50 z-40`} onClick={toggleSidebar}></div>
+      <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} overflow-scroll md:hidden fixed inset-y-0 left-0 w-64 dark:bg-black bg-white text-black dark:text-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out`}>
         <div className="p-3 relative text-gray-600">
         <button
             type="button"
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"
             aria-expanded="false"
-            className="md:hidden text-gray-500 absolute right-0 top-0 p-3"
+            className="md:hidden dark:text-gray-500 absolute right-0 top-0 p-3"
             onClick={toggleSidebar}
           >
-            <AiOutlineClose className='hover:text-gray-50 text-xl' />
+            <AiOutlineClose className='hover:dark:text-gray-50 text-xl' />
             <span className="sr-only">Open main menu</span>
           </button>
 
           <div className="mb-">
-            <Link className="text-gray-50 mb-3 border-0 font-semibold text-3xl" to="/">
+            <Link className="dark:text-gray-50 mb-3 border-0 font-semibold text-3xl" to="/">
             <img src={logo.footerLogo} className="w-24" alt="Logo" />
             {/* <span className="self-center text-2xl font-semibold whitespace-nowrap "></span> */}
             </Link>
@@ -228,13 +228,13 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
               
                     
                         <div className='flex flex-col gap-2 mb-3 mt-8'>
-                            <h3 className='text-lg font-semibold text-gray-50'>Hey <span className='text-blue-700 italic'>Visitor</span></h3>
-                            <p className='text-sm text-gray-500'>Welcome to <a href='/' className='text-gray-50 font-bold text-lg font-mono'>Risk Edge</a></p>
-                            {/* <p className='text-sm'><a className='text-gray-50 font-bold' href="/login">Login</a> or <a className='text-gray-50 font-bold' href="/signup">Register</a> to access your account.</p> */}
+                            <h3 className='text-lg font-semibold dark:text-gray-50'>Hey <span className='text-blue-700 italic'>Visitor</span></h3>
+                            <p className='text-sm dark:text-gray-500'>Welcome to <a href='/' className='dark:text-gray-50 font-bold text-lg font-mono'>Risk Edge</a></p>
+                            {/* <p className='text-sm'><a className='dark:text-gray-50 font-bold' href="/login">Login</a> or <a className='dark:text-gray-50 font-bold' href="/signup">Register</a> to access your account.</p> */}
                         </div>
                   
             
-                <nav className="flex flex-col gap-2 text-sm  font-semibold text-gray-50">
+                <nav className="flex flex-col gap-2 text-sm  font-semibold dark:text-gray-50">
                   <NavLink className="flex gap-3 items-center hover:bg-gray-400 px-3 rounded py-2 hover:translate-x-2 transition transform delay-50" to="/">Home</NavLink>
                       <button
                           id="dropdownAvatarNameButton"
@@ -243,14 +243,14 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
                           type="button"
                         >
                           <span className="sr-only">Open user menu</span>
-                          <span className='text-gray-50 font-semibold'>Solutions</span>
-                          <FaChevronDown className="w-2.5 h-2.5 text-white"  />
+                          <span className='dark:text-gray-50 font-semibold'>Solutions</span>
+                          <FaChevronDown className="w-2.5 h-2.5 dark:text-white"  />
                         </button>
 
                         {isOpen && (
                           <div
                             id="dropdownAvatarName"
-                            className="ml-4 bg-black divide-y divide-gray-100  shadow w-64 "
+                            className="ml-4 transition duration-300 dark:bg-black divide-y divide-gray-100  w-64 "
                           >
                             
                             <ul
@@ -306,8 +306,8 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
                         )}
                   <NavLink className="flex gap-3 items-center hover:bg-gray-400 px-3 rounded py-2 hover:translate-x-2 transition transform delay-50" to="/about">About</NavLink>
                   <NavLink className="flex gap-3 items-center hover:bg-gray-400 px-3 rounded py-2 hover:translate-x-2 transition transform delay-50" to="/contact">Contact</NavLink>
-                  {/* <NavLink className="flex gap-3 items-center hover:bg-gray-200 px-3 rounded py-2" to="/contact"><BiSupport className='text-lg text-gray-50'/> Help & Support</NavLink> */}
-                {/* {isLoggedIn && <button onClick={handleLogout} className="flex gap-3 hover:bg-gray-200 px-3 rounded py-2 items-center" to="/store"><IoLogOut className='text-xl text-gray-50'/>Logout</button> } */}
+                  {/* <NavLink className="flex gap-3 items-center hover:bg-gray-200 px-3 rounded py-2" to="/contact"><BiSupport className='text-lg dark:text-gray-50'/> Help & Support</NavLink> */}
+                {/* {isLoggedIn && <button onClick={handleLogout} className="flex gap-3 hover:bg-gray-200 px-3 rounded py-2 items-center" to="/store"><IoLogOut className='text-xl dark:text-gray-50'/>Logout</button> } */}
                 <li className=' flex justify-start' >
                         <button
                          onClick={toggleDarkMode}

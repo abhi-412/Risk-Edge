@@ -4,13 +4,17 @@ import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
 import useAlert from "../Components/useAlert"
 import Alert from "../Components/Alert"
+import CustomInput from './CustomInput';
 
-const ContactForm = () => {
+const ContactForm = ({typing,setTyping}) => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const formRef = useRef();
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
+
+  const formRef = useRef()
+
+  const handleFocus = () => setTyping(true);
 
   
 
@@ -36,7 +40,8 @@ const ContactForm = () => {
     }),
     onSubmit: (values) => {
       setLoading(true);
-      setSubmitting(true)
+      setSubmitting(true);
+      setTyping(false);
       setHasSubmitted(true);
       emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -62,6 +67,7 @@ const ContactForm = () => {
           setLoading(false);
           console.error(error);
           setSubmitting(false);
+          // setTyping(false)
 
           showAlert({
             show: true,
@@ -80,7 +86,7 @@ const ContactForm = () => {
   });
 
   return (
-    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-4 h-full  rounded bg-gray-100 dark:bg-gray-900">
+    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-5 h-full  rounded bg-gray-300 dark:bg-gray-900">
        {alert.show && <Alert {...alert} />}
       {/* Salutation and Company */}
       <div className='flex gap-4 items-center justify-between'>
@@ -89,17 +95,18 @@ const ContactForm = () => {
                 <select 
                 onChange={formik.handleChange}
                 value={formik.values.salutation}
-                onBlur={formik.handleBlur}
+               onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
                 required
                 id="salutation"
                 name='salutation'
-                className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer"
+                className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-950 dark:text-white bg-transparent dark:bg-gray-950 outline-none rounded-none border-1 border-gray-500 appearance-none  peer"
                 >
                   <option value="">Select</option>
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
                 </select>
-                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
+                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-300  px-2 peer-focus:px-2 peer-focus:bg-gray-300 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
             </div>
           {formik.touched.salutation && formik.errors.salutation && hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.salutation}</p>
@@ -108,18 +115,17 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='company'
-                    onChange={formik.handleChange}
-                    value={formik.values.company}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="company"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="company" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Company</label>
-            </div>
+          <CustomInput
+          onChange={formik.handleChange}
+          value={formik.values.company}
+         onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+          required = {true}
+          name={"company"}
+          labelFor={"company"}
+          type={"text"}
+          title={"Company"}
+          />
           {formik.touched.company && formik.errors.company && hasSubmitted &&  (
             <p className="text-red-500 text-xs mt-1">{formik.errors.company}</p>
           )}
@@ -129,18 +135,17 @@ const ContactForm = () => {
       {/* First Name and Last Name */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='firstname'
-                    onChange={formik.handleChange}
-                    value={formik.values.firstname}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="firstname"
-                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="firstname" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">First Name</label>
-            </div>
+        <CustomInput
+          onChange={formik.handleChange}
+          value={formik.values.firstname}
+         onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+          required = {true}
+          name={"firstname"}
+          labelFor={"firstname"}
+          type={"text"}
+          title={"First Name"}
+          />
           {formik.touched.firstname && formik.errors.firstname &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.firstname}</p>
           )}
@@ -148,18 +153,17 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='lastname'
-                    onChange={formik.handleChange}
-                    value={formik.values.lastname}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="lastname"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="lastname" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Last Name</label>
-            </div>
+          <CustomInput
+            onChange={formik.handleChange}
+            value={formik.values.lastname}
+           onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+            required = {true}
+            name={"lastname"}
+            labelFor={"lastname"}
+            type={"text"}
+            title={"Last Name"}
+            />
           {formik.touched.lastname && formik.errors.lastname &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.lastname}</p>
           )}
@@ -169,18 +173,17 @@ const ContactForm = () => {
       {/* Phone and Email */}
       <div className='flex gap-4 items-center justify-between'>
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='phone'
-                    onChange={formik.handleChange}
-                    value={formik.values.phone}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="phone"
-                    className="block px-2.5 pb-2.5 pt-4 border w-full text-sm text-gray-900 dark:text-white bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="phone" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Phone</label>
-            </div>
+          <CustomInput
+              onChange={formik.handleChange}
+              value={formik.values.phone}
+             onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+              required = {true}
+              name={"phone"}
+              type={"text"}
+              title={"Phone"}
+              label={"phone"}
+              />
           {formik.touched.phone && formik.errors.phone &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.phone}</p>
           )}
@@ -188,18 +191,18 @@ const ContactForm = () => {
 
         {/* Company */}
         <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='email'
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="email"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="email" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Email</label>
-            </div>
+          <CustomInput
+                onChange={formik.handleChange}
+                value={formik.values.email}
+               onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+                required = {true}
+                name={"email"}
+                type={"text"}
+                title={"Email"}
+                labelFor={"email"}
+                />
+       
           {formik.touched.email && formik.errors.email &&  hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>
           )}
@@ -207,19 +210,19 @@ const ContactForm = () => {
       </div>
 
       {/* Project Budget */}
-      <div className='flex flex-col gap-1 w-full'>
-        <div className="relative shadow-md dark:bg-gray-950">
-                <input
-                    type="text"
-                    name='budget'
-                    onChange={formik.handleChange}
-                    value={formik.values.budget}
-                    onBlur={formik.handleBlur}
-                    required
-                    id="budget"
-                    className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" " />
-                <label htmlFor="budget" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Project Budget</label>
-            </div>
+        <div className='flex flex-col gap-1 w-full'>
+
+            <CustomInput
+                onChange={formik.handleChange}
+                value={formik.values.budget}
+               onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
+                required = {false}
+                name={"budget"}
+                type={"text"}
+                title={"Budget"}
+                labelFor={"budget"}
+                />
           {formik.touched.budget && formik.errors.budget && hasSubmitted &&  (
             <p className="text-red-500 text-xs mt-1">{formik.errors.budget}</p>
           )}
@@ -230,13 +233,14 @@ const ContactForm = () => {
         <textarea
           name="message"
           onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
+         onFocus={handleFocus}
+             onBlur={(e)=>{formik.handleBlur(e);setTyping(false)}}
           value={formik.values.message}
           rows="4"
-          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent rounded-none border-1 border-gray-300 appearance-none  peer" placeholder=" "
+          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent outline-none rounded-none border-1 border-gray-500 shadow-md appearance-none  peer" placeholder=" "
 
         />
-        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950  px-2 peer-focus:px-2 peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-300  px-2 peer-focus:px-2 peer-focus:bg-gray-300 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
 
           Message *
         </label>
@@ -247,7 +251,7 @@ const ContactForm = () => {
 
       {/* Submit Button */}
       <div>
-        <button type="submit" disabled={submitting} className="w-full bg-blue-500 dark:bg-blue-800 text-white p-2 rounded hover:bg-blue-600 dark:hover:bg-blue-900">
+        <button type="submit" disabled={submitting} className="w-full bg-gradient-to-r from-[#00c6ff] to-[#0072ff]   text-white p-2 rounded hover:bg-blue-600 dark:hover:bg-blue-900">
           {submitting ? "Sending..." : "Send"}
         </button>
       </div>

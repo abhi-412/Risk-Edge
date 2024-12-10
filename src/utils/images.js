@@ -16,6 +16,14 @@ import CR1 from "../assets/images/CR1.png"
 import pexels from "../assets/images/pexels.jpg"
 import smart from "../assets/images/smart.jpg"
 import AIUseCasesEbook from "../assets/images/E-Book-AI-Use-Cases.png"
+import case1 from "../assets/images/case-1.jpg"
+import case2 from "../assets/images/case-2.jpg"
+import case3 from "../assets/images/case-3.jpg"
+import case4 from "../assets/images/case-4.jpg"
+import case5 from "../assets/images/case-5.jpg"
+import case6 from "../assets/images/case-6.jpg"
+import case7 from "../assets/images/case-7.jpg"
+import case8 from "../assets/images/case-8.jpg"
 
 export default {
     prod1Img,
@@ -35,5 +43,13 @@ export default {
     CR1,
     pexels,
     smart,
-    AIUseCasesEbook
+    AIUseCasesEbook,
+    case1,
+    case2,
+    case3,
+    case4,
+    case5,
+    case6,
+    case7,
+    case8
 };
