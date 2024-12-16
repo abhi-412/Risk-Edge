@@ -190,9 +190,9 @@ let fillColor = "#5c5c5cc8";
         // delay:"0.5",
         ease: "elastic.out(1,0.1)",
         yoyo:true,
-        // repeat:2,
+        stagger:0.5,
         scrollTrigger:{
-            trigger:".link",
+            trigger:".link a",
             scroller:"body",
             }
     }
@@ -274,7 +274,7 @@ let fillColor = "#5c5c5cc8";
                         </p>
                 </div>
                 <div id='page2' className='flex flex-wrap justify-center max-w-7xl mx-auto md:gap-12 gap-6  p-4'>
-                        <div  className=' cursor-pointer hover:scale-105 transition duration-200 link w-fit bg-white dark:bg-black dark:shadow-gray-700 flex flex-col gap-5 shadow-gray-400/50 border items-start justify-center shadow-xl md:p-12 p-8'>
+                        <div  className='link cursor-pointer hover:scale-105 transition duration-200  w-fit bg-white dark:bg-black dark:shadow-gray-700 flex flex-col gap-5 shadow-gray-400/50 border items-start justify-center shadow-xl md:p-12 p-8'>
                             <img src={icons.computer} alt="computer" />
                             <h4 className="h5 font-semibold">Machine Learning</h4>
                             <p className="body-2 max-w-md">Risk Edge’s “Predictive Engine” is built specifically for Commodity & Energy businesses to help you understand hidden patterns, risks, and price trends so businesses can be understood as a whole, and not just in parts! The in-built models give you a simple, never-before view of your data!</p>

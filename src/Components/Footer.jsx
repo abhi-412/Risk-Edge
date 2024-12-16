@@ -71,6 +71,10 @@ const Footer = () => {
             </div>
         </div>
     </div>
+    <div className='w-full flex justify-center mt-3'>
+    <a className='w-full flex justify-center' title="Web Analytics" href="https://clicky.com/100809810"><img className='w-24 h-5' alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+    <script async data-id="100809810" src="//static.getclicky.com/js"></script>
+    </div>
   </div>
 </div>
 

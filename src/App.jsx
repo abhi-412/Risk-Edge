@@ -18,6 +18,7 @@ import CreditRisk from './Pages/CreditRisk.jsx'
 import Footer from './Components/Footer.jsx'
 import Ebooks from './Pages/Ebooks.jsx'
 import ScrollToTop from './Components/ScrollToTop.jsx'
+import CaseStudies from './Pages/CaseStudies.jsx'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path='/plan-edge' element={<PlanEdge />} />
             <Route path='/var-edge' element={<VarEdge />} />
             <Route path='/credit-risk' element={<CreditRisk />} />
+            <Route path='/client-case-studies' element={<CaseStudies />} />
             <Route path='/resources/:slug' element={<Ebooks />} />
         </Routes>
         <Footer />

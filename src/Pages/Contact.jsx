@@ -48,7 +48,7 @@ const Contact = () => {
         <iframe className='md:w-3/4 md:h-[500px] h-[300px] w-full' src="https://www.google.com/maps/d/u/0/embed?mid=1fv5ssfn4ov1n8UMtkxOnn4XFdKzvXi0&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
 
         </div>
-      <div className='w-full flex justify-center items-center gap-10 lg:p-12 p-5'>
+      <div className='w-full flex justify-center items-center gap-10 lg:p-12 p-3'>
       
         {/* <div className='md:col-span-1 col-span-2 py-5  flex flex-col bg-gray-100 dark:bg-gray-900 px-4 items-center justify-start gap-6'>
             <h4 className='h4'>Reach out to Us</h4>
@@ -101,7 +101,7 @@ const Contact = () => {
            
 
         </div> */}
-        <div className='max-w-6xl mx-auto w-full flex flex-col gap-6 px-6 rounded-3xl bg-gray-300 shadow-xl dark:bg-gray-900 py-8'>
+        <div className='max-w-6xl mx-auto w-full flex flex-col gap-6 md:px-6 px-3 rounded-3xl bg-gray-200 shadow-xl dark:bg-gray-900 py-8'>
             <h1 className='h3 text-center'> Send us a Message</h1>
             <div className='flex flex-col md:flex-row md:gap-12 gap-4 justify-center items-center'>
                 <div className='flex items-center gap-2'>

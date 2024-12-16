@@ -101,7 +101,7 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
             <div  className='w-full flex flex-nowrap justify-end'>
                 <div className='flex gap-12   font-semibold'>
                       <NavLink className="flex gap-2 items-center justify-center mb-0" to="/">Home</NavLink>
-                      <div className="relative h-full flex items-center justify-center "
+                      <div className="relative h-full flex items-center justify-center peer"
                       onMouseLeave={()=>{setIsOpen(false)}}
                       
                       >
@@ -113,8 +113,8 @@ const Navbar = ({navbarColor,setNavbarColor}) => {
                           onClick={toggleDropdown}
                         >
                           <span className="sr-only">Open user menu</span>
-                          <span className=' font-semibold text-base'>Solutions</span>
-                          <FaChevronDown className="w-2.5 h-2.5 "  />
+                          <span className=' font-semibold text-base peer'>Solutions</span>
+                          <FaChevronDown className="w-2.5 h-2.5 peer-hover:rotate-180 transition duration-200"  />
                         </button>
 
                         {isOpen && (

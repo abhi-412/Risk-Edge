@@ -86,7 +86,7 @@ const ContactForm = ({typing,setTyping}) => {
   });
 
   return (
-    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 p-5 h-full  rounded bg-gray-300 dark:bg-gray-900">
+    <form  ref={formRef} id="contactForm" onSubmit={(e)=>{formik.handleSubmit(e)}} className="relative space-y-8 lg:p-8 sm:p-5 md:p-2 h-full  rounded bg-gray-200 dark:bg-gray-900">
        {alert.show && <Alert {...alert} />}
       {/* Salutation and Company */}
       <div className='flex gap-4 items-center justify-between'>
@@ -106,7 +106,7 @@ const ContactForm = ({typing,setTyping}) => {
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
                 </select>
-                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-300  px-2 peer-focus:px-2 peer-focus:bg-gray-300 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
+                <label htmlFor="salutation" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-200  px-2 peer-focus:px-2 peer-focus:bg-gray-200 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Title</label>
             </div>
           {formik.touched.salutation && formik.errors.salutation && hasSubmitted && (
             <p className="text-red-500 text-xs mt-1">{formik.errors.salutation}</p>
@@ -240,7 +240,7 @@ const ContactForm = ({typing,setTyping}) => {
           className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 dark:text-white border bg-transparent outline-none rounded-none border-1 border-gray-500 shadow-md appearance-none  peer" placeholder=" "
 
         />
-        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-300  px-2 peer-focus:px-2 peer-focus:bg-gray-300 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
+        <label htmlFor="message" className="absolute text-sm text-gray-500 dark:text-gray-100 duration-300 transform -translate-y-4 scale-75 top-2 z-1 origin-[0] dark:bg-gray-950 bg-gray-200  px-2 peer-focus:px-2 peer-focus:bg-gray-200 dark:peer-focus:bg-black peer-focus:text-black dark:peer-focus:text-white font-semibold  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
 
           Message *
         </label>

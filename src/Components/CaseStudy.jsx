@@ -42,7 +42,7 @@ const CaseStudy = ({c,index}) => {
                             <div className='col-span-2 md:col-span-1 flex w-full h-full flex-col gap-2 items-start justify-start'>
                             <h1 className='h5'>{c.title}</h1>
                             <p className='body-2'>{c.desc}</p>
-                            <a className='text-blue-500 text-xs sm:text-sm md:text-base' href="/client-case-studies">Read More</a>
+                            <a className='text-blue-500 text-xs sm:text-sm md:text-base' href={`/client-case-studies${c.link}`}>Read More</a>
                         </div>
                     </div>
                 </SwiperSlide>
